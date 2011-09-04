@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
+		F257B8361413B19600AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
+		F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8371413B19600AF8B3D /* CoreGraphics.framework */; };
+		F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F257B83C1413B19600AF8B3D /* InfoPlist.strings */; };
+		F257B8401413B19600AF8B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B83F1413B19600AF8B3D /* main.m */; };
+		F257B8441413B19600AF8B3D /* mobile_paymentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */; };
+		F257B8471413B19600AF8B3D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8451413B19600AF8B3D /* MainWindow.xib */; };
+		F257B84A1413B19600AF8B3D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8491413B19600AF8B3D /* RootViewController.m */; };
+		F257B84D1413B19700AF8B3D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B84B1413B19700AF8B3D /* RootViewController.xib */; };
+		F257B8551413B19700AF8B3D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8541413B19700AF8B3D /* SenTestingKit.framework */; };
+		F257B8561413B19700AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
+		F257B8571413B19700AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
+		F257B8581413B19700AF8B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8371413B19600AF8B3D /* CoreGraphics.framework */; };
+		F257B8601413B19700AF8B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F257B85E1413B19700AF8B3D /* InfoPlist.strings */; };
+		F257B8621413B19700AF8B3D /* mobile_paymentTests.h in Resources */ = {isa = PBXBuildFile; fileRef = F257B8611413B19700AF8B3D /* mobile_paymentTests.h */; };
+		F257B8641413B19700AF8B3D /* mobile_paymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8631413B19700AF8B3D /* mobile_paymentTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F257B8591413B19700AF8B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F257B8261413B19600AF8B3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F257B82E1413B19600AF8B3D;
+			remoteInfo = "mobile-payment";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F257B82F1413B19600AF8B3D /* mobile-payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-payment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F257B8331413B19600AF8B3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F257B8351413B19600AF8B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F257B8371413B19600AF8B3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F257B83B1413B19600AF8B3D /* mobile-payment-Info.plist */ = {isa = PBXFileReference; path = "mobile-payment-Info.plist"; sourceTree = "<group>"; };
+		F257B83D1413B19600AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F257B83F1413B19600AF8B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F257B8411413B19600AF8B3D /* mobile-payment-Prefix.pch */ = {isa = PBXFileReference; path = "mobile-payment-Prefix.pch"; sourceTree = "<group>"; };
+		F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */ = {isa = PBXFileReference; path = mobile_paymentAppDelegate.h; sourceTree = "<group>"; };
+		F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile_paymentAppDelegate.m; sourceTree = "<group>"; };
+		F257B8461413B19600AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F257B8481413B19600AF8B3D /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		F257B8491413B19600AF8B3D /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		F257B84C1413B19700AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		F257B8531413B19700AF8B3D /* mobile-paymentTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-paymentTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F257B8541413B19700AF8B3D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F257B85D1413B19700AF8B3D /* mobile-paymentTests-Info.plist */ = {isa = PBXFileReference; path = "mobile-paymentTests-Info.plist"; sourceTree = "<group>"; };
+		F257B85F1413B19700AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F257B8611413B19700AF8B3D /* mobile_paymentTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mobile_paymentTests.h; sourceTree = "<group>"; };
+		F257B8631413B19700AF8B3D /* mobile_paymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile_paymentTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F257B82C1413B19600AF8B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */,
+				F257B8361413B19600AF8B3D /* Foundation.framework in Frameworks */,
+				F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F257B84F1413B19700AF8B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B8551413B19700AF8B3D /* SenTestingKit.framework in Frameworks */,
+				F257B8561413B19700AF8B3D /* UIKit.framework in Frameworks */,
+				F257B8571413B19700AF8B3D /* Foundation.framework in Frameworks */,
+				F257B8581413B19700AF8B3D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F257B8241413B19600AF8B3D = {
+			isa = PBXGroup;
+			children = (
+				F257B8391413B19600AF8B3D /* mobile-payment */,
+				F257B85B1413B19700AF8B3D /* mobile-paymentTests */,
+				F257B8321413B19600AF8B3D /* Frameworks */,
+				F257B8301413B19600AF8B3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F257B8301413B19600AF8B3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F257B82F1413B19600AF8B3D /* mobile-payment.app */,
+				F257B8531413B19700AF8B3D /* mobile-paymentTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F257B8321413B19600AF8B3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F257B8331413B19600AF8B3D /* UIKit.framework */,
+				F257B8351413B19600AF8B3D /* Foundation.framework */,
+				F257B8371413B19600AF8B3D /* CoreGraphics.framework */,
+				F257B8541413B19700AF8B3D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F257B8391413B19600AF8B3D /* mobile-payment */ = {
+			isa = PBXGroup;
+			children = (
+				F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */,
+				F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */,
+				F257B8451413B19600AF8B3D /* MainWindow.xib */,
+				F257B8481413B19600AF8B3D /* RootViewController.h */,
+				F257B8491413B19600AF8B3D /* RootViewController.m */,
+				F257B84B1413B19700AF8B3D /* RootViewController.xib */,
+				F257B83A1413B19600AF8B3D /* Supporting Files */,
+			);
+			path = "mobile-payment";
+			sourceTree = "<group>";
+		};
+		F257B83A1413B19600AF8B3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F257B83B1413B19600AF8B3D /* mobile-payment-Info.plist */,
+				F257B83C1413B19600AF8B3D /* InfoPlist.strings */,
+				F257B83F1413B19600AF8B3D /* main.m */,
+				F257B8411413B19600AF8B3D /* mobile-payment-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F257B85B1413B19700AF8B3D /* mobile-paymentTests */ = {
+			isa = PBXGroup;
+			children = (
+				F257B8611413B19700AF8B3D /* mobile_paymentTests.h */,
+				F257B8631413B19700AF8B3D /* mobile_paymentTests.m */,
+				F257B85C1413B19700AF8B3D /* Supporting Files */,
+			);
+			path = "mobile-paymentTests";
+			sourceTree = "<group>";
+		};
+		F257B85C1413B19700AF8B3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F257B85D1413B19700AF8B3D /* mobile-paymentTests-Info.plist */,
+				F257B85E1413B19700AF8B3D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F257B82E1413B19600AF8B3D /* mobile-payment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F257B8671413B19700AF8B3D /* Build configuration list for PBXNativeTarget "mobile-payment" */;
+			buildPhases = (
+				F257B82B1413B19600AF8B3D /* Sources */,
+				F257B82C1413B19600AF8B3D /* Frameworks */,
+				F257B82D1413B19600AF8B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mobile-payment";
+			productName = "mobile-payment";
+			productReference = F257B82F1413B19600AF8B3D /* mobile-payment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F257B8521413B19700AF8B3D /* mobile-paymentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F257B86A1413B19700AF8B3D /* Build configuration list for PBXNativeTarget "mobile-paymentTests" */;
+			buildPhases = (
+				F257B84E1413B19700AF8B3D /* Sources */,
+				F257B84F1413B19700AF8B3D /* Frameworks */,
+				F257B8501413B19700AF8B3D /* Resources */,
+				F257B8511413B19700AF8B3D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F257B85A1413B19700AF8B3D /* PBXTargetDependency */,
+			);
+			name = "mobile-paymentTests";
+			productName = "mobile-paymentTests";
+			productReference = F257B8531413B19700AF8B3D /* mobile-paymentTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F257B8261413B19600AF8B3D /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F257B8291413B19600AF8B3D /* Build configuration list for PBXProject "mobile-payment" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F257B8241413B19600AF8B3D;
+			productRefGroup = F257B8301413B19600AF8B3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F257B82E1413B19600AF8B3D /* mobile-payment */,
+				F257B8521413B19700AF8B3D /* mobile-paymentTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F257B82D1413B19600AF8B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */,
+				F257B8471413B19600AF8B3D /* MainWindow.xib in Resources */,
+				F257B84D1413B19700AF8B3D /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F257B8501413B19700AF8B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B8601413B19700AF8B3D /* InfoPlist.strings in Resources */,
+				F257B8621413B19700AF8B3D /* mobile_paymentTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F257B8511413B19700AF8B3D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F257B82B1413B19600AF8B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B8401413B19600AF8B3D /* main.m in Sources */,
+				F257B8441413B19600AF8B3D /* mobile_paymentAppDelegate.m in Sources */,
+				F257B84A1413B19600AF8B3D /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F257B84E1413B19700AF8B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F257B8641413B19700AF8B3D /* mobile_paymentTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F257B85A1413B19700AF8B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F257B82E1413B19600AF8B3D /* mobile-payment */;
+			targetProxy = F257B8591413B19700AF8B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F257B83C1413B19600AF8B3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F257B83D1413B19600AF8B3D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F257B8451413B19600AF8B3D /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F257B8461413B19600AF8B3D /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		F257B84B1413B19700AF8B3D /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F257B84C1413B19700AF8B3D /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		F257B85E1413B19700AF8B3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F257B85F1413B19700AF8B3D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F257B8651413B19700AF8B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F257B8661413B19700AF8B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F257B8681413B19700AF8B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				INFOPLIST_FILE = "mobile-payment/mobile-payment-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F257B8691413B19700AF8B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				INFOPLIST_FILE = "mobile-payment/mobile-payment-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F257B86B1413B19700AF8B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mobile-payment.app/mobile-payment";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				INFOPLIST_FILE = "mobile-paymentTests/mobile-paymentTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F257B86C1413B19700AF8B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mobile-payment.app/mobile-payment";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				INFOPLIST_FILE = "mobile-paymentTests/mobile-paymentTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F257B8291413B19600AF8B3D /* Build configuration list for PBXProject "mobile-payment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F257B8651413B19700AF8B3D /* Debug */,
+				F257B8661413B19700AF8B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F257B8671413B19700AF8B3D /* Build configuration list for PBXNativeTarget "mobile-payment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F257B8681413B19700AF8B3D /* Debug */,
+				F257B8691413B19700AF8B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F257B86A1413B19700AF8B3D /* Build configuration list for PBXNativeTarget "mobile-paymentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F257B86B1413B19700AF8B3D /* Debug */,
+				F257B86C1413B19700AF8B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F257B8261413B19600AF8B3D /* Project object */;
+}
