@@ -3,7 +3,7 @@
 //  mobil-payment
 //
 //  Created by Torben Toepper on 27.08.11.
-//  Copyright 2011 redrauscher. All rights reserved.
+//  Copyright 2011 Torben Toepper. All rights reserved.
 //
 
 #import "Properties.h"
@@ -52,6 +52,11 @@
     [request setPostValue:[properties objectForKey:@"paypalUsername"] forKey:@"customer[paypal_username]"];
     [request setPostValue:[properties objectForKey:@"paypalPassword"] forKey:@"customer[paypal_password]"];
     [request setPostValue:[properties objectForKey:@"paypalSignature"] forKey:@"customer[paypal_signature]"];
+    [request setPostValue:[properties objectForKey:@"website_url"] forKey:@"customer[website_url]"];
+    [request setPostValue:[properties objectForKey:@"street"] forKey:@"customer[street]"];
+    [request setPostValue:[properties objectForKey:@"zip"] forKey:@"customer[zip]"];
+    [request setPostValue:[properties objectForKey:@"location"] forKey:@"customer[location]"];
+    
     if(customer_id != @"") [request setPostValue:deviceUDID forKey:@"customer[hardware_id]"];
     [request startSynchronous];
     

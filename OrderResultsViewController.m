@@ -3,7 +3,7 @@
 //  mobil-payment
 //
 //  Created by Torben Toepper on 01.09.11.
-//  Copyright 2011 redrauscher. All rights reserved.
+//  Copyright 2011 Torben Toepper. All rights reserved.
 //
 
 #import "OrderResultsViewController.h"

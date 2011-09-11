@@ -14,4 +14,6 @@
 
 @property(nonatomic, retain) NSDictionary *row;
 
+-(NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

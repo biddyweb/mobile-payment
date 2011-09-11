@@ -3,7 +3,7 @@
 //  mobil-payment
 //
 //  Created by Torben Toepper on 27.08.11.
-//  Copyright 2011 redrauscher. All rights reserved.
+//  Copyright 2011 Torben Toepper. All rights reserved.
 //
 
 #import "PropertiesViewController.h"
@@ -40,6 +40,10 @@
                     [NSArray arrayWithObjects:
                      [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"storename"], @"value", @"Name", @"key", nil],
                      [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"currency"], @"value", @"currency", @"key", nil],
+                     [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"website_url"], @"value", @"website_url", @"key", nil],
+                     [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"street"], @"value", @"street", @"key", nil],
+                     [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"zip"], @"value", @"zip", @"key", nil],
+                     [NSDictionary dictionaryWithObjectsAndKeys:[props get:@"location"], @"value", @"location", @"key", nil],
                      nil
                      ]
      ]; //Section 1
@@ -111,29 +115,31 @@
 	}
 
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell;
     
-    if ([indexPath section] == 0 || [indexPath section] == 1) {
-        NSArray *arr = [table objectAtIndex:[indexPath section]];
-        NSDictionary *dict = [arr objectAtIndex:[indexPath row]];
-        UITextField *input;
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        //cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-		if (!cell) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
-
-			input = [[[UITextField alloc] initWithFrame:CGRectZero] autorelease];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+    
+        if ([indexPath section] == 0 || [indexPath section] == 1) {
+            NSArray *arr = [table objectAtIndex:[indexPath section]];
+            NSDictionary *dict = [arr objectAtIndex:[indexPath row]];
+            UITextField *input;
+            
+            input = [[[UITextField alloc] initWithFrame:CGRectZero] autorelease];
             [input setDelegate:self];
             [input setBorderStyle:UITextBorderStyleNone];
             input.placeholder = [dict objectForKey:@"key"];
-
+            
             input.secureTextEntry = [self isFieldProtected:[dict objectForKey:@"key"]];
             
             if ([[dict objectForKey:@"key"] isEqualToString:@"currency"]) {
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 input.enabled = false;
+            }
+            if ([[dict objectForKey:@"key"] isEqualToString:@"website_url"]) {
+                input.keyboardType = UIKeyboardTypeURL;
+                input.autocorrectionType = UITextAutocorrectionTypeNo;
             }
             
             cell.textLabel.text = [dict objectForKey:@"key"];
@@ -143,25 +149,15 @@
             [input setText:[dict objectForKey:@"value"]];
             
             [inputFields addObject:[NSDictionary dictionaryWithObjectsAndKeys:indexPath, @"indexPath", input, @"input", nil]];
-		}
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if(!cell) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-
+        } else {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [button setTitle:@"Speichern" forState:UIControlStateNormal];
             [button addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
             [[cell contentView] addSubview:button];
             [button setFrame:CGRectMake(10,10,tableWidth-tablePadding,25)];
         }
-    }
-    
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
     return cell;
@@ -246,7 +242,6 @@
     }
 }
 
-
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
     [textField setInputAccessoryView:keyboardToolbar];
     for (int i=0; i<[inputFields count]; i++) {
@@ -256,8 +251,8 @@
                 [toolbarActionButton setStyle:UIBarButtonItemStyleDone];    
             }
             
-            NSIndexPath *indexPath = [[inputFields objectAtIndex:i] objectForKey:@"indexPath"];
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            //NSIndexPath *indexPath = [[inputFields objectAtIndex:i] objectForKey:@"indexPath"];
+            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         }
     }
     
@@ -299,21 +294,34 @@
     if([self check]) {
         UITextField *storename = [[inputFields objectAtIndex:0] objectForKey:@"input"];
         UITextField *currency = [[inputFields objectAtIndex:1] objectForKey:@"input"];
-        UITextField *paypalUsername = [[inputFields objectAtIndex:2] objectForKey:@"input"];
-        UITextField *paypalPassword = [[inputFields objectAtIndex:3] objectForKey:@"input"];
-        UITextField *paypalSignature = [[inputFields objectAtIndex:4] objectForKey:@"input"];
+        UITextField *website_url = [[inputFields objectAtIndex:2] objectForKey:@"input"];
+        UITextField *street = [[inputFields objectAtIndex:3] objectForKey:@"input"];
+        UITextField *zip = [[inputFields objectAtIndex:4] objectForKey:@"input"];
+        UITextField *location = [[inputFields objectAtIndex:5] objectForKey:@"input"];
+        UITextField *paypalUsername = [[inputFields objectAtIndex:6] objectForKey:@"input"];
+        UITextField *paypalPassword = [[inputFields objectAtIndex:7] objectForKey:@"input"];
+        UITextField *paypalSignature = [[inputFields objectAtIndex:8] objectForKey:@"input"];
 
         NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:
                                     storename.text,
                                     @"storename",
                                     currency.text,
                                     @"currency",
+                                    website_url.text,
+                                    @"website_url",
+                                    street.text,
+                                    @"street",
+                                    zip.text,
+                                    @"zip",
+                                    location.text,
+                                    @"location",
                                     paypalUsername.text,
                                     @"paypalUsername",
                                     paypalPassword.text,
                                     @"paypalPassword",
                                     paypalSignature.text,
                                     @"paypalSignature",
+                                    
                                     nil];
         if ([props storeInDB:properties]) {
             NSEnumerator *enumerator = [properties keyEnumerator];

@@ -3,7 +3,7 @@
 //  mobile-payment
 //
 //  Created by Torben Toepper on 24.08.11.
-//  Copyright 2011 redrauscher. All rights reserved.
+//  Copyright 2011 Torben Toepper. All rights reserved.
 //
 
 #import "mobile_paymentAppDelegate.h"

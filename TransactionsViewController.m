@@ -53,6 +53,9 @@
                         [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"name"], @"customer",
                         [[values objectAtIndex:i] objectForKey:@"currency_key"], @"currency_key",
                         [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"website_url"], @"website_url",
+                        [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"street"], @"street",
+                        [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"zip"], @"zip",
+                        [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"location"], @"location",
                         nil]
                     ];
                 }

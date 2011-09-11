@@ -9,6 +9,7 @@
 #import "TransactionDetailViewController.h"
 #import "TransactionsViewController.h"
 #import "CostomerWebsiteViewController.h"
+#import "MapsViewController.h"
 
 @implementation TransactionDetailViewController
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        //
     }
     return self;
 }
@@ -83,13 +84,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,31 +98,68 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+        
+        cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.detailTextLabel.numberOfLines = 0;
     }
     
     if([indexPath row] == 0) {
         cell.textLabel.text = @"Verkäufer:";
-        cell.detailTextLabel.text = [row objectForKey:@"customer"];
+        cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if([indexPath row] == 1) {
         cell.textLabel.text = @"Betrag:";
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [row objectForKey:@"amount"], [row objectForKey:@"currency_key"]];
+        cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     } else if([indexPath row] == 2) {
         cell.textLabel.text = @"Transaktionsnr.:";
-        cell.detailTextLabel.text = [row objectForKey:@"transaction_id"];
+        cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    } else if([indexPath row] == 3) {
+        cell.textLabel.text = @"Adresse:";
+        cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
     
     // Configure the cell...
     
     return cell;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize = [[self textForRowAtIndexPath:indexPath] sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return labelSize.height + 20;
+}
+
+-(NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch ([indexPath section]) {
+        case 0:
+            switch ([indexPath row]) {
+                case 0:
+                    return [row objectForKey:@"customer"];
+                    
+                case 1:
+                    return [NSString stringWithFormat:@"%@ %@", [row objectForKey:@"amount"], [row objectForKey:@"currency_key"]];
+                
+                case 2:
+                    return [row objectForKey:@"transaction_id"];
+                
+                case 3:
+                    return [NSString stringWithFormat:@"%@\n%@ %@", [row objectForKey:@"street"], [row objectForKey:@"zip"], [row objectForKey:@"location"]];
+            }
+    }
+    
+    return @"";
+}
+
 - (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
     NSString *dateString = [row objectForKey:@"paid_at"];
+
     NSDate *date = [TransactionsViewController dateFromInternetDateTimeString:dateString];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -180,6 +216,12 @@
         // Pass the selected object to the new view controller.
         [self.navigationController pushViewController:customerViewController animated:YES];
         [customerViewController release];
+    } else if([indexPath row] == 3) {
+        MapsViewController *mapsViewController = [[MapsViewController alloc] initWithNibName:@"MapsViewController" bundle:nil ];
+        
+        mapsViewController.row = row;
+        [self.navigationController pushViewController:mapsViewController animated:YES];
+        [mapsViewController release];
     }
 }
 
