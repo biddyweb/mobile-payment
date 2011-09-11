@@ -7,8 +7,12 @@
 //
 
 #import "TransactionDetailViewController.h"
+#import "TransactionsViewController.h"
+#import "CostomerWebsiteViewController.h"
 
 @implementation TransactionDetailViewController
+
+@synthesize row;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Details";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -69,24 +75,21 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    return YES;
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,12 +98,38 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
     }
+    
+    if([indexPath row] == 0) {
+        cell.textLabel.text = @"Verkäufer:";
+        cell.detailTextLabel.text = [row objectForKey:@"customer"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if([indexPath row] == 1) {
+        cell.textLabel.text = @"Betrag:";
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [row objectForKey:@"amount"], [row objectForKey:@"currency_key"]];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    } else if([indexPath row] == 2) {
+        cell.textLabel.text = @"Transaktionsnr.:";
+        cell.detailTextLabel.text = [row objectForKey:@"transaction_id"];
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
+    
     
     // Configure the cell...
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
+    NSString *dateString = [row objectForKey:@"paid_at"];
+    NSDate *date = [TransactionsViewController dateFromInternetDateTimeString:dateString];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat: @"dd.MM.yyyy HH:mm:ss"];
+    
+	return [dateFormat stringFromDate:date];
 }
 
 /*
@@ -144,16 +173,14 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([indexPath row] == 0) {
+        CostomerWebsiteViewController *customerViewController = [[CostomerWebsiteViewController alloc] initWithNibName:@"CostomerWebsiteViewController" bundle:nil url:[row objectForKey:@"website_url"]];
+        
+        // Pass the selected object to the new view controller.
+        [self.navigationController pushViewController:customerViewController animated:YES];
+        [customerViewController release];
+    }
 }
 
 @end

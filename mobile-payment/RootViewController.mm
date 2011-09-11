@@ -1,145 +1,138 @@
 //
 //  RootViewController.m
-//  mobile-payment
+//  mobil-payment
 //
-//  Created by Torben Toepper on 04.09.11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Torben Toepper on 24.08.11.
+//  Copyright 2011 redrauscher. All rights reserved.
 //
 
 #import "RootViewController.h"
+#import "QRCodeReader.h"
+#import "PayPal.h"
+#import "PropertiesViewController.h"
+#import "ASIFormDataRequest.h"
+#import "Config.h"
+
+@interface RootViewController()
+
+@end
+
 
 @implementation RootViewController
 
+@synthesize resultsView, resultsToDisplay, bookController, generateQrController, tokenFetchAttempted;
 
-- (void)viewDidLoad
-{
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"Mobile Payment"];
+    [resultsView setText:resultsToDisplay];
+    
+    if (!tokenFetchAttempted) {
+		tokenFetchAttempted = TRUE;
+		//Fetch the device reference token immediately before displaying the page containing the Pay with PayPal button.
+		//You might display a UIActivityIndicatorView here to let the user know something is going on.
+        PayPal *paypal = [PayPal getInstance];
+        //paypal.lang = @"DE";
+		[paypal fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:nil];
+	}
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-/*
- // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
-
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
+- (IBAction)scanPressed:(id)sender {
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+    [qrcodeReader release];
+    widController.readers = readers;
+    [readers release];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    widController.soundToPlay =
+    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+    [self presentModalViewController:widController animated:YES];
+    [widController release];
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (IBAction)bookPressed:(id)sender {
+    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/26/pay";
+    NSArray *urlComponents = [qrCode componentsSeparatedByString:@"/"];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-
-    // Configure the cell.
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert)
-    {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	*/
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    NSString *customerId = [urlComponents objectAtIndex:[Config qrCodeCustomerPosition]];
+    NSString *transactionId = [urlComponents objectAtIndex:[Config qrCodeTransactionPosition]];
     
-    // Relinquish ownership any cached data, images, etc that aren't in use.
+    UIActivityIndicatorView  *av = [[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+    av.frame=CGRectMake(145, 160, 25, 25);
+    av.tag  = 1;
+    
+    self.bookController.returnUrlValue = [NSString stringWithFormat:@"%@", [Config transactionConfirmationUrl:customerId transaction:transactionId asJSON:true]];
+    
+    [self.navigationController pushViewController:self.bookController animated:YES];
+    
+    [self.bookController.view addSubview:av];
+    [av startAnimating];
+    
+    [self.bookController loadTransaction:customerId transactionId:transactionId];
+    [self.bookController addPayPalButton];
+    
+    [av removeFromSuperview];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
+- (IBAction)transactionsPressed:(id)sender {
+    TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
+    [self.navigationController pushViewController:transactionsController animated:YES];
 }
 
-- (void)dealloc
-{
+- (IBAction)generatePressed:(id)sender {
+    [self.navigationController pushViewController:self.generateQrController animated:YES];
+}
+
+- (IBAction)myDataPressed:(id)sender {
+    PropertiesViewController *widController = [[PropertiesViewController alloc] initWithNibName:@"PropertiesViewController" bundle:nil];
+    [self presentModalViewController:widController animated:YES];
+}
+
+#pragma mark -
+#pragma mark ZXingDelegateMethods
+
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
+    self.resultsToDisplay = result;
+    if (self.isViewLoaded) {
+        [resultsView setText:resultsToDisplay];
+        [resultsView setNeedsDisplay];
+    }
+    [self dismissModalViewControllerAnimated:NO];
+}
+
+- (void)zxingControllerDidCancel:(ZXingWidgetController*)controller {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)receivedDeviceReferenceToken:(NSString *)token {
+    //
+}
+- (void)couldNotFetchDeviceReferenceToken {
+    //
+}
+
+- (void)viewDidUnload {
+    self.resultsView = nil;
+}
+
+- (void)dealloc {
+    [generateQrController release];
+    [bookController release];
+    [resultsView release];
     [super dealloc];
 }
 
+
 @end
+
+
+
