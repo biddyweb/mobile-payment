@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'mobile-payment' target in the 'mobile-payment' project
+// Prefix header for all source files of the 'mobile-payment' target in the 'mobil-payment' project
 //
 
 #import <Availability.h>
@@ -9,6 +9,27 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#define DEBUG 1
+//#define RELEASE 1
+
+#ifdef DEBUG
+
+// Debug definitions
+#define DEBUG_MODE
+#define XLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+
+#else
+
+#ifndef RELEASE
+#error DEBUG or RELEASE need to be #defined
+#endif
+
+// Release definitions
+#define RELEASE_MODE
+#define XLog(...)
+
 #endif

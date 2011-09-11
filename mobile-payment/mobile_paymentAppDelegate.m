@@ -2,28 +2,40 @@
 //  mobile_paymentAppDelegate.m
 //  mobile-payment
 //
-//  Created by Torben Toepper on 04.09.11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Torben Toepper on 24.08.11.
+//  Copyright 2011 redrauscher. All rights reserved.
 //
 
 #import "mobile_paymentAppDelegate.h"
+#import "PayPal.h"
+
 
 @implementation mobile_paymentAppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    // Add the navigation controller's view to the window and display.
-    self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
-    return YES;
+/*
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+ {
+ // Override point for customization after application launch.
+ // Add the navigation controller's view to the window and display.
+ self.window.rootViewController = self.navigationController;
+ [self.window makeKeyAndVisible];
+ return YES;
+ }
+ */
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    // Override point for customization after app launch    
+	
+	[_window addSubview:[_navigationController view]];
+    [_window makeKeyAndVisible];
+    
+	return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+- (void)applicationWillResignActive:(UIApplication *)application {
     /*
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -38,8 +50,10 @@
      */
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    PayPal *paypal = [PayPal getInstance];
+    //paypal.lang = @"DE";
+    [paypal fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:nil];
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
