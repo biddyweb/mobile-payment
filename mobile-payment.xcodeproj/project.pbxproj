@@ -17,6 +17,7 @@
 		F2562FCF141D55420089593D /* MapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FCD141D55420089593D /* MapsViewController.xib */; };
 		F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2562FD0141D587C0089593D /* MapKit.framework */; };
 		F2562FD4141D5BDE0089593D /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FD3141D5BDE0089593D /* AddressAnnotation.m */; };
+		F2562FD7141D63120089593D /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FD6141D63120089593D /* MainWindow-iPad.xib */; };
 		F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
 		F257B8361413B19600AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
 		F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8371413B19600AF8B3D /* CoreGraphics.framework */; };
@@ -166,6 +167,7 @@
 		F2562FD0141D587C0089593D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F2562FD2141D5BDE0089593D /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
 		F2562FD3141D5BDE0089593D /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
+		F2562FD6141D63120089593D /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		F257B82F1413B19600AF8B3D /* mobile-payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-payment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F257B8331413B19600AF8B3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F257B8351413B19600AF8B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -406,6 +408,14 @@
 			name = Booking;
 			sourceTree = "<group>";
 		};
+		F2562FD5141D63090089593D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F2562FD6141D63120089593D /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		F257B8241413B19600AF8B3D = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +467,7 @@
 		F257B8391413B19600AF8B3D /* mobile-payment */ = {
 			isa = PBXGroup;
 			children = (
+				F2562FD5141D63090089593D /* iPad */,
 				F257B8F41413B3AC00AF8B3D /* beep-beep.aiff */,
 				F257B8E61413B35800AF8B3D /* MainWindow.xib */,
 				F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */,
@@ -861,6 +872,7 @@
 				F20A83AA141CBA8000757691 /* CatalogViewController.xib in Resources */,
 				F2562FCA141D238F0089593D /* LoadingViewController.xib in Resources */,
 				F2562FCF141D55420089593D /* MapsViewController.xib in Resources */,
+				F2562FD7141D63120089593D /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,7 +1075,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1084,7 +1096,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

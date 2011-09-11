@@ -60,7 +60,7 @@
 }
 
 - (IBAction)bookPressed:(id)sender {
-    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/26/pay";
+    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/27/pay";
     NSArray *urlComponents = [qrCode componentsSeparatedByString:@"/"];
     
     NSString *customerId = [urlComponents objectAtIndex:[Config qrCodeCustomerPosition]];
