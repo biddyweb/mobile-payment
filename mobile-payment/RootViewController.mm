@@ -20,7 +20,7 @@
 
 @implementation RootViewController
 
-@synthesize resultsView, resultsToDisplay, bookController, generateQrController, tokenFetchAttempted;
+@synthesize resultsView, resultsToDisplay, bookController, generateQrController, tokenFetchAttempted, bookButton;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -29,6 +29,9 @@
     [super viewDidLoad];
     [self setTitle:@"Mobile Payment"];
     [resultsView setText:resultsToDisplay];
+    [bookButton setBackgroundColor:[UIColor clearColor]];
+    CALayer * downButtonLayer = [bookButton layer];
+    [downButtonLayer setBorderWidth:0.0];
     
     if (!tokenFetchAttempted) {
 		tokenFetchAttempted = TRUE;

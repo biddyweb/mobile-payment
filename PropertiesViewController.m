@@ -11,7 +11,7 @@
 
 @implementation PropertiesViewController
 
-@synthesize props, table, inputFields, keyboardToolbar, toolbarActionButton;
+@synthesize props, table, inputFields, keyboardToolbar, toolbarActionButton, localTableView, cancel, done, navigation, inputFieldsAsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,9 +32,10 @@
 }
 
 -(void)prepare {
-    inputFields = [[NSMutableArray alloc] init];
+    inputFields = [[NSMutableDictionary alloc] init];
+    inputFieldsAsArray = [[NSMutableArray alloc] init];
     props = [[Properties alloc] init];
-
+    
     table = [[NSMutableArray alloc] init];
     [table addObject:
                     [NSArray arrayWithObjects:
@@ -71,7 +72,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [localTableView setDelegate:self];
+    [localTableView setDataSource:self];
+    
+    for (int i=0,n=[table count]; i<n; i++) {
+        for (int ii=0,nn=[[table objectAtIndex:i] count]; ii<nn; ii++) {
+            NSString *text = [[[table objectAtIndex:i] objectAtIndex:ii] objectForKey:@"value"];
+            UITextField *input = [[[UITextField alloc] initWithFrame:CGRectZero] autorelease];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:ii inSection:i];
+            
+            [input setText:text];
+            
+            [inputFields setObject:input forKey:indexPath];
+            //if(![[[[table objectAtIndex:i] objectAtIndex:ii] objectForKey:@"key"] isEqualToString:@"currency"]) {
+                [inputFieldsAsArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:indexPath, @"indexPath", input, @"input", nil]];
+            //}
+        }
+    }
+    
+    navigation.topItem.title = @"Eigenschaften";
 }
 
 - (void)viewDidUnload
@@ -90,20 +110,12 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return [table count] + 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [table count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    if (section >= [table count]) {
-        return 1;
-    } else {
-        return [[table objectAtIndex:section] count];
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[table objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,48 +129,55 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSArray *arr = [table objectAtIndex:[indexPath section]];;
+    NSDictionary *dict = [arr objectAtIndex:[indexPath row]];
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
-    
-        if ([indexPath section] == 0 || [indexPath section] == 1) {
-            NSArray *arr = [table objectAtIndex:[indexPath section]];
-            NSDictionary *dict = [arr objectAtIndex:[indexPath row]];
-            UITextField *input;
-            
-            input = [[[UITextField alloc] initWithFrame:CGRectZero] autorelease];
-            [input setDelegate:self];
-            [input setBorderStyle:UITextBorderStyleNone];
-            input.placeholder = [dict objectForKey:@"key"];
-            
-            input.secureTextEntry = [self isFieldProtected:[dict objectForKey:@"key"]];
-            
-            if ([[dict objectForKey:@"key"] isEqualToString:@"currency"]) {
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                input.enabled = false;
-            }
-            if ([[dict objectForKey:@"key"] isEqualToString:@"website_url"]) {
-                input.keyboardType = UIKeyboardTypeURL;
-                input.autocorrectionType = UITextAutocorrectionTypeNo;
-            }
-            
-            cell.textLabel.text = [dict objectForKey:@"key"];
-            [[cell contentView] addSubview:input];
-            
-            [input setFrame:CGRectMake(100+tablePadding,12,tableWidth-tablePadding-140,25)];
-            [input setText:[dict objectForKey:@"value"]];
-            
-            [inputFields addObject:[NSDictionary dictionaryWithObjectsAndKeys:indexPath, @"indexPath", input, @"input", nil]];
-        } else {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [button setTitle:@"Speichern" forState:UIControlStateNormal];
-            [button addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
-            [[cell contentView] addSubview:button];
-            [button setFrame:CGRectMake(10,10,tableWidth-tablePadding,25)];
-        }
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
+    
+    cell.textLabel.text = [dict objectForKey:@"key"];
+    //cell.detailTextLabel.text = @"a";
+    
+    if ([[dict objectForKey:@"key"] isEqualToString:@"currency"]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    UITextField *input = [inputFields objectForKey:indexPath];
+    
+    if ([cell contentView] != nil) {
+        for(int i=0,n=[[[cell contentView] subviews] count];i<n;i++) {
+            id d = [[[cell contentView] subviews] objectAtIndex:i];
+            if([d isKindOfClass:[UITextField class]]) {
+                [d removeFromSuperview];
+            }
+        }
+    }
+    
+
+    [input setDelegate:self];
+    [input setBorderStyle:UITextBorderStyleNone];
+    
+    input.secureTextEntry = [self isFieldProtected:[dict objectForKey:@"key"]];
+    
+    if ([[dict objectForKey:@"key"] isEqualToString:@"currency"]) {
+        input.enabled = false;
+    }
+    if ([[dict objectForKey:@"key"] isEqualToString:@"website_url"]) {
+        input.keyboardType = UIKeyboardTypeURL;
+        input.autocorrectionType = UITextAutocorrectionTypeNo;
+    }
+    
+    [input setFrame:CGRectMake(60+tablePadding,12,tableWidth-tablePadding-100,25)];
+    input.placeholder = [dict objectForKey:@"key"];
+
+    
+    [[cell contentView] addSubview:input];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     
     return cell;
 }
@@ -243,16 +262,25 @@
 }
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
+    CGPoint point = [textField.superview convertPoint:textField.frame.origin toView:localTableView];
+    CGPoint contentOffset = localTableView.contentOffset;
+    NSLog(@"%f", localTableView.contentOffset);
+    NSLog(@"%f", navigation.frame.size.height);
+    contentOffset.y += (point.y - navigation.frame.size.height); // Adjust this value as you need
+    [localTableView setContentOffset:contentOffset animated:YES];
+    
     [textField setInputAccessoryView:keyboardToolbar];
-    for (int i=0; i<[inputFields count]; i++) {
-        if ([[inputFields objectAtIndex:i] objectForKey:@"input"] == textField) {
-            if (i==[inputFields count]-1) {
+    for (int i=0; i<[inputFieldsAsArray count]; i++) {
+        if ([[inputFieldsAsArray objectAtIndex:i] objectForKey:@"input"] == textField) {
+            if (i==[inputFieldsAsArray count]-1) {
                 toolbarActionButton.title = @"Done";
                 [toolbarActionButton setStyle:UIBarButtonItemStyleDone];    
             }
             
-            //NSIndexPath *indexPath = [[inputFields objectAtIndex:i] objectForKey:@"indexPath"];
-            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            /*
+            NSIndexPath *indexPath = [[inputFieldsAsArray objectAtIndex:i] objectForKey:@"indexPath"];
+            [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            */
         }
     }
     
@@ -280,8 +308,8 @@
  */
 
 -(BOOL)check {
-    for(int i=0,n=[inputFields count];i<n;i++) {
-        UITextField *textfield = [[inputFields objectAtIndex:i] objectForKey:@"input"];
+    for(int i=0,n=[inputFieldsAsArray count];i<n;i++) {
+        UITextField *textfield = [[inputFieldsAsArray objectAtIndex:i] objectForKey:@"input"];
         if ([textfield.text length] <= 0) {
             return false;
         }
@@ -290,17 +318,21 @@
     return true;
 }
 
+-(IBAction)cancel:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 -(IBAction)submit:(id)sender {
     if([self check]) {
-        UITextField *storename = [[inputFields objectAtIndex:0] objectForKey:@"input"];
-        UITextField *currency = [[inputFields objectAtIndex:1] objectForKey:@"input"];
-        UITextField *website_url = [[inputFields objectAtIndex:2] objectForKey:@"input"];
-        UITextField *street = [[inputFields objectAtIndex:3] objectForKey:@"input"];
-        UITextField *zip = [[inputFields objectAtIndex:4] objectForKey:@"input"];
-        UITextField *location = [[inputFields objectAtIndex:5] objectForKey:@"input"];
-        UITextField *paypalUsername = [[inputFields objectAtIndex:6] objectForKey:@"input"];
-        UITextField *paypalPassword = [[inputFields objectAtIndex:7] objectForKey:@"input"];
-        UITextField *paypalSignature = [[inputFields objectAtIndex:8] objectForKey:@"input"];
+        UITextField *storename = [[inputFieldsAsArray objectAtIndex:0] objectForKey:@"input"];
+        UITextField *currency = [[inputFieldsAsArray objectAtIndex:1] objectForKey:@"input"];
+        UITextField *website_url = [[inputFieldsAsArray objectAtIndex:2] objectForKey:@"input"];
+        UITextField *street = [[inputFieldsAsArray objectAtIndex:3] objectForKey:@"input"];
+        UITextField *zip = [[inputFieldsAsArray objectAtIndex:4] objectForKey:@"input"];
+        UITextField *location = [[inputFieldsAsArray objectAtIndex:5] objectForKey:@"input"];
+        UITextField *paypalUsername = [[inputFieldsAsArray objectAtIndex:6] objectForKey:@"input"];
+        UITextField *paypalPassword = [[inputFieldsAsArray objectAtIndex:7] objectForKey:@"input"];
+        UITextField *paypalSignature = [[inputFieldsAsArray objectAtIndex:8] objectForKey:@"input"];
 
         NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:
                                     storename.text,
@@ -344,7 +376,7 @@
 }
 
 - (IBAction)closeKeyboard:(id)sender {
-    for(NSDictionary *t in inputFields){
+    for(NSDictionary *t in inputFieldsAsArray){
         UITextField *field = [t objectForKey:@"input"];
         if ([field isEditing]) {
             [field resignFirstResponder];
@@ -354,10 +386,10 @@
 }
 
 - (IBAction) nextField:(id)sender {
-    for (int i=0; i<[inputFields count]; i++) {
-        if ([[[inputFields objectAtIndex:i] objectForKey:@"input"] isEditing] && i!=[inputFields count]-1) {
-            [[[inputFields objectAtIndex:i+1] objectForKey:@"input"] becomeFirstResponder];
-            if (i+1 == [inputFields count]-1) {
+    for (int i=0; i<[inputFieldsAsArray count]; i++) {
+        if ([[[inputFieldsAsArray objectAtIndex:i] objectForKey:@"input"] isEditing] && i!=[inputFieldsAsArray count]-1) {
+            [[[inputFieldsAsArray objectAtIndex:i+1] objectForKey:@"input"] becomeFirstResponder];
+            if (i+1 == [inputFieldsAsArray count]-1) {
                 [toolbarActionButton setTitle:@"Done"];
                 [toolbarActionButton setStyle:UIBarButtonItemStyleDone];
             }else {
@@ -365,8 +397,8 @@
                 [toolbarActionButton setStyle:UIBarButtonItemStyleBordered];
             }
             
-            NSIndexPath *indexPath = [[inputFields objectAtIndex:i+1] objectForKey:@"indexPath"];
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            NSIndexPath *indexPath = [[inputFieldsAsArray objectAtIndex:i+1] objectForKey:@"indexPath"];
+            [localTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
             
             
             break;
@@ -375,13 +407,13 @@
 }
 
 - (IBAction) prevField:(id)sender {
-    for (int i=0; i<[inputFields count]; i++) {
-        if ([[[inputFields objectAtIndex:i] objectForKey:@"input"] isEditing] && i!=0) {
-            [[[inputFields objectAtIndex:i-1] objectForKey:@"input"] becomeFirstResponder];
+    for (int i=0; i<[inputFieldsAsArray count]; i++) {
+        if ([[[inputFieldsAsArray objectAtIndex:i] objectForKey:@"input"] isEditing] && i!=0) {
+            [[[inputFieldsAsArray objectAtIndex:i-1] objectForKey:@"input"] becomeFirstResponder];
             [toolbarActionButton setTitle:@"Close"];
             
-            NSIndexPath *indexPath = [[inputFields objectAtIndex:i-1] objectForKey:@"indexPath"];
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            NSIndexPath *indexPath = [[inputFieldsAsArray objectAtIndex:i-1] objectForKey:@"indexPath"];
+            [localTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[indexPath row] inSection:[indexPath section]] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
             [toolbarActionButton setStyle:UIBarButtonItemStyleBordered];
             
             break;
@@ -393,6 +425,7 @@
     [table release];
     [props release];
     [inputFields release];
+    [inputFieldsAsArray release];
     [super dealloc];
 }
 

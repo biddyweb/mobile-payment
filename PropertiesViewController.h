@@ -9,21 +9,31 @@
 #import <UIKit/UIKit.h>
 #import "Properties.h"
 
-@interface PropertiesViewController : UITableViewController <UITextFieldDelegate> {
+@interface PropertiesViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
     Properties *props;
-
+    
+    IBOutlet UITableView *localTableView;
+    IBOutlet UINavigationBar *navigation;
     IBOutlet UIToolbar *keyboardToolbar;
     IBOutlet UIBarButtonItem *toolbarActionButton;
+    IBOutlet UIBarButtonItem *cancel;
+    IBOutlet UIBarButtonItem *done;
 
     NSMutableArray *table;
-    NSMutableArray *inputFields;
+    NSMutableDictionary *inputFields;
+    NSMutableArray *inputFieldsAsArray;
 }
 
 @property (nonatomic, retain) Properties *props;
 @property (nonatomic, retain) NSMutableArray *table;
-@property (nonatomic, retain) NSMutableArray *inputFields;
+@property (nonatomic, retain) NSMutableDictionary *inputFields;
+@property (nonatomic, retain) NSMutableArray *inputFieldsAsArray;
+@property (nonatomic, retain) IBOutlet UITableView *localTableView;
+@property (nonatomic, retain) IBOutlet UINavigationBar *navigation;
 @property (nonatomic, retain) IBOutlet UIToolbar *keyboardToolbar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *toolbarActionButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *cancel;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *done;
 
 
 /*
@@ -34,6 +44,7 @@
 -(void)prepare;
 -(BOOL)check;
 -(BOOL)isFieldProtected:(NSString *)key;
+-(IBAction)cancel:(id)sender;
 -(IBAction)submit:(id)sender;
 -(IBAction)closeKeyboard:(id)sender;
 -(IBAction)nextField:(id)sender;

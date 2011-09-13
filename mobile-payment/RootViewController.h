@@ -16,6 +16,7 @@
 
 @interface RootViewController : UIViewController <ZXingDelegate, DeviceReferenceTokenDelegate> {
     IBOutlet UITextView *resultsView;
+    IBOutlet UIButton *bookButton;
     NSString *resultsToDisplay;
     BookViewController *booksController;
     GenerateQRViewController *generateQrController;
@@ -25,6 +26,7 @@
 
 @property (nonatomic, assign) BOOL tokenFetchAttempted;
 
+@property (nonatomic, retain) IBOutlet UIButton *bookButton;
 @property (nonatomic, retain) IBOutlet BookViewController *bookController;
 @property (nonatomic, retain) IBOutlet GenerateQRViewController *generateQrController;
 @property (nonatomic, retain) IBOutlet UITextView *resultsView;

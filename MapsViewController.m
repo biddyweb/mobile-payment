@@ -40,8 +40,8 @@
     //Hide the keypad
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta=0.2;
-    span.longitudeDelta=0.2;
+    span.latitudeDelta=0.05;
+    span.longitudeDelta=0.05;
     
     CLLocationCoordinate2D location = [self addressLocation];
     region.span=span;
