@@ -29,8 +29,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     // Override point for customization after app launch    
 	
-	//[_window addSubview:[_navigationController view]];
-    //[_window makeKeyAndVisible];
+	[_window addSubview:[_navigationController view]];
+    [_window makeKeyAndVisible];
     
     [NSThread detachNewThreadSelector:@selector(initializePayPal) toTarget:self withObject:nil];
     
