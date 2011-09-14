@@ -15,8 +15,7 @@
 @class BookViewController;
 
 @interface RootViewController : UIViewController <ZXingDelegate, DeviceReferenceTokenDelegate> {
-    IBOutlet UITextView *resultsView;
-    IBOutlet UIButton *bookButton;
+    IBOutlet UIButton *scanButton;
     NSString *resultsToDisplay;
     BookViewController *booksController;
     GenerateQRViewController *generateQrController;
@@ -26,12 +25,13 @@
 
 @property (nonatomic, assign) BOOL tokenFetchAttempted;
 
-@property (nonatomic, retain) IBOutlet UIButton *bookButton;
+@property (nonatomic, retain) IBOutlet UIButton *scanButton;
 @property (nonatomic, retain) IBOutlet BookViewController *bookController;
 @property (nonatomic, retain) IBOutlet GenerateQRViewController *generateQrController;
-@property (nonatomic, retain) IBOutlet UITextView *resultsView;
 @property (nonatomic, copy) NSString *resultsToDisplay;
 
+- (void)showBooking:(NSString *)qrCode;
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result;
 - (IBAction)scanPressed:(id)sender;
 - (IBAction)bookPressed:(id)sender;
 - (IBAction)transactionsPressed:(id)sender;

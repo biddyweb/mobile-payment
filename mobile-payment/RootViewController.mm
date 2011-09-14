@@ -20,7 +20,7 @@
 
 @implementation RootViewController
 
-@synthesize resultsView, resultsToDisplay, bookController, generateQrController, tokenFetchAttempted, bookButton;
+@synthesize resultsToDisplay, bookController, generateQrController, tokenFetchAttempted, scanButton;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -28,18 +28,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Mobile Payment"];
-    [resultsView setText:resultsToDisplay];
-    [bookButton setBackgroundColor:[UIColor clearColor]];
-    CALayer * downButtonLayer = [bookButton layer];
+    [scanButton setBackgroundColor:[UIColor clearColor]];
+    CALayer *downButtonLayer = [scanButton layer];
     [downButtonLayer setBorderWidth:0.0];
     
     if (!tokenFetchAttempted) {
 		tokenFetchAttempted = TRUE;
 		//Fetch the device reference token immediately before displaying the page containing the Pay with PayPal button.
 		//You might display a UIActivityIndicatorView here to let the user know something is going on.
-        PayPal *paypal = [PayPal getInstance];
+        //PayPal *paypal = [PayPal getInstance];
         //paypal.lang = @"DE";
-		[paypal fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:nil];
+		//[paypal fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:nil];
+        [[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
 	}
 }
 
@@ -48,22 +48,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)scanPressed:(id)sender {
-    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
-    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
-    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
-    [qrcodeReader release];
-    widController.readers = readers;
-    [readers release];
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    widController.soundToPlay =
-    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
-    [self presentModalViewController:widController animated:YES];
-    [widController release];
-}
-
-- (IBAction)bookPressed:(id)sender {
-    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/27/pay";
+-(void)showBooking:(NSString *)qrCode {
     NSArray *urlComponents = [qrCode componentsSeparatedByString:@"/"];
     
     NSString *customerId = [urlComponents objectAtIndex:[Config qrCodeCustomerPosition]];
@@ -86,6 +71,25 @@
     [av removeFromSuperview];
 }
 
+- (IBAction)scanPressed:(id)sender {
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+    [qrcodeReader release];
+    widController.readers = readers;
+    [readers release];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    widController.soundToPlay =
+    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+    [self presentModalViewController:widController animated:YES];
+    [widController release];
+}
+
+- (IBAction)bookPressed:(id)sender {
+    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/27/pay";
+    [self showBooking:qrCode];
+}
+
 - (IBAction)transactionsPressed:(id)sender {
     TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
     [self.navigationController pushViewController:transactionsController animated:YES];
@@ -105,10 +109,7 @@
 
 - (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
     self.resultsToDisplay = result;
-    if (self.isViewLoaded) {
-        [resultsView setText:resultsToDisplay];
-        [resultsView setNeedsDisplay];
-    }
+    [self showBooking:resultsToDisplay];
     [self dismissModalViewControllerAnimated:NO];
 }
 
@@ -123,14 +124,9 @@
     //
 }
 
-- (void)viewDidUnload {
-    self.resultsView = nil;
-}
-
 - (void)dealloc {
     [generateQrController release];
     [bookController release];
-    [resultsView release];
     [super dealloc];
 }
 

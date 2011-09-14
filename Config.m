@@ -25,7 +25,8 @@
 }
 
 +(NSString *)webUrlTEMP {
-    return @"http://payment.dev/"; 
+    return @"http://192.168.9.109:3000/";
+    return @"http://payment.dev/";
 }
 
 +(NSURL *)transactionsUrlWith:(NSString *)hardwareId {
