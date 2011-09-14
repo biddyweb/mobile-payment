@@ -7,7 +7,7 @@
 //
 
 #import "mobile_paymentAppDelegate.h"
-#import "PayPal.h"
+#import "ECNetworkHandler.h"
 
 
 @implementation mobile_paymentAppDelegate
@@ -29,10 +29,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     // Override point for customization after app launch    
 	
-	[_window addSubview:[_navigationController view]];
-    [_window makeKeyAndVisible];
+	//[_window addSubview:[_navigationController view]];
+    //[_window makeKeyAndVisible];
+    
+    [NSThread detachNewThreadSelector:@selector(initializePayPal) toTarget:self withObject:nil];
     
 	return YES;
+}
+
+-(void)initializePayPal {
+    //[[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
+    [[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
+    return;
+}
+
+- (void)receivedDeviceReferenceToken:(NSString *)token {
+    // Stash the device token somewhere to use later. [ECNetworkHandler sharedInstance].deviceReferenceToken = token;
+    XLog(@"erfolg!");
+}
+- (void)couldNotFetchDeviceReferenceToken {
+    // Record the errorMessage that tells what went wrong. 
+    NSLog(@"DEVICE REFERENCE TOKEN ERROR: %@", [PayPal getInstance].errorMessage);
+    [ECNetworkHandler sharedInstance].deviceReferenceToken = @"";
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

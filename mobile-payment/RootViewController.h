@@ -14,7 +14,7 @@
 
 @class BookViewController;
 
-@interface RootViewController : UIViewController <ZXingDelegate, DeviceReferenceTokenDelegate> {
+@interface RootViewController : UIViewController <ZXingDelegate> {
     IBOutlet UIButton *scanButton;
     NSString *resultsToDisplay;
     BookViewController *booksController;

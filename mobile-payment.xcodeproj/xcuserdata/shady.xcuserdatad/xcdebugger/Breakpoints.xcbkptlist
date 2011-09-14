@@ -59,5 +59,43 @@
          landmarkName = "-zxingController:didScanResult:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "mobile-payment/mobile_paymentAppDelegate.m"
+         timestampString = "337725480.843908"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "10"
+         endingLineNumber = "10">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "-[mobile_paymentAppDelegate window]"
+               urlString = "file://localhost/mobile_paymentAppDelegate.m"
+               timestampString = "337725480.931664"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "15"
+               endingLineNumber = "15">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "-[mobile_paymentAppDelegate setWindow:]"
+               urlString = "file://localhost/mobile_paymentAppDelegate.m"
+               timestampString = "337725480.933048"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "15"
+               endingLineNumber = "15">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PayPal.h"
 
-@interface mobile_paymentAppDelegate : NSObject <UIApplicationDelegate> {
+@interface mobile_paymentAppDelegate : NSObject <UIApplicationDelegate, DeviceReferenceTokenDelegate> {
     UIWindow *window;
 	UINavigationController *navController;
 }

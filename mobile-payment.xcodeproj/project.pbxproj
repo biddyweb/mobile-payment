@@ -11,6 +11,7 @@
 		F20A83A5141CB0D400757691 /* appsymbol_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A4141CB0D400757691 /* appsymbol_r.png */; };
 		F20A83A9141CBA8000757691 /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20A83A7141CBA8000757691 /* CatalogViewController.m */; };
 		F20A83AA141CBA8000757691 /* CatalogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A8141CBA8000757691 /* CatalogViewController.xib */; };
+		F24802C0142136630020BBCC /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F24802BF142136630020BBCC /* libPayPalEC.a */; };
 		F2562FC9141D238F0089593D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FC7141D238F0089593D /* LoadingViewController.m */; };
 		F2562FCA141D238F0089593D /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FC8141D238F0089593D /* LoadingViewController.xib */; };
 		F2562FCE141D55420089593D /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FCC141D55420089593D /* MapsViewController.m */; };
@@ -158,6 +159,7 @@
 		F20A83A6141CBA8000757691 /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
 		F20A83A7141CBA8000757691 /* CatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogViewController.m; sourceTree = "<group>"; };
 		F20A83A8141CBA8000757691 /* CatalogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogViewController.xib; sourceTree = "<group>"; };
+		F24802BF142136630020BBCC /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
 		F2562FC6141D238F0089593D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		F2562FC7141D238F0089593D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		F2562FC8141D238F0089593D /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */,
 				F257B8361413B19600AF8B3D /* Foundation.framework in Frameworks */,
 				F257B8DD1413B2E900AF8B3D /* libPayPalEC.a in Frameworks */,
+				F24802C0142136630020BBCC /* libPayPalEC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +431,7 @@
 				F257B85B1413B19700AF8B3D /* mobile-paymentTests */,
 				F257B8321413B19600AF8B3D /* Frameworks */,
 				F257B8301413B19600AF8B3D /* Products */,
+				F24802BF142136630020BBCC /* libPayPalEC.a */,
 			);
 			sourceTree = "<group>";
 		};
