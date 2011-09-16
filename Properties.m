@@ -47,15 +47,26 @@
     
     if(customer_id != @"") [request setRequestMethod:@"PUT"];
 
-    [request setPostValue:[properties objectForKey:@"storename"] forKey:@"customer[name]"];
-    [request setPostValue:[properties objectForKey:@"currency"] forKey:@"customer[currency]"];
-    [request setPostValue:[properties objectForKey:@"paypalUsername"] forKey:@"customer[paypal_username]"];
-    [request setPostValue:[properties objectForKey:@"paypalPassword"] forKey:@"customer[paypal_password]"];
-    [request setPostValue:[properties objectForKey:@"paypalSignature"] forKey:@"customer[paypal_signature]"];
-    [request setPostValue:[properties objectForKey:@"website_url"] forKey:@"customer[website_url]"];
-    [request setPostValue:[properties objectForKey:@"street"] forKey:@"customer[street]"];
-    [request setPostValue:[properties objectForKey:@"zip"] forKey:@"customer[zip]"];
-    [request setPostValue:[properties objectForKey:@"location"] forKey:@"customer[location]"];
+    if([properties objectForKey:@"storename"] != nil)
+        [request setPostValue:[properties objectForKey:@"storename"] forKey:@"customer[name]"];
+    if([properties objectForKey:@"currency"] != nil)
+        [request setPostValue:[properties objectForKey:@"currency"] forKey:@"customer[currency]"];
+    if([properties objectForKey:@"paypalUsername"] != nil)
+        [request setPostValue:[properties objectForKey:@"paypalUsername"] forKey:@"customer[paypal_username]"];
+    if([properties objectForKey:@"paypalPassword"] != nil)
+        [request setPostValue:[properties objectForKey:@"paypalPassword"] forKey:@"customer[paypal_password]"];
+    if([properties objectForKey:@"paypalSignature"] != nil)
+        [request setPostValue:[properties objectForKey:@"paypalSignature"] forKey:@"customer[paypal_signature]"];
+    if([properties objectForKey:@"website_url"] != nil)
+        [request setPostValue:[properties objectForKey:@"website_url"] forKey:@"customer[website_url]"];
+    if([properties objectForKey:@"street"] != nil)
+        [request setPostValue:[properties objectForKey:@"street"] forKey:@"customer[street]"];
+    if([properties objectForKey:@"zip"] != nil)
+        [request setPostValue:[properties objectForKey:@"zip"] forKey:@"customer[zip]"];
+    if([properties objectForKey:@"location"] != nil)
+        [request setPostValue:[properties objectForKey:@"location"] forKey:@"customer[location]"];
+    if([properties objectForKey:@"apn_token"] != nil)
+        [request setPostValue:[properties objectForKey:@"apn_token"] forKey:@"customer[apn_token]"];
     
     if(customer_id != @"") [request setPostValue:deviceUDID forKey:@"customer[hardware_id]"];
     [request startSynchronous];

@@ -51,24 +51,32 @@
 -(void)showBooking:(NSString *)qrCode {
     NSArray *urlComponents = [qrCode componentsSeparatedByString:@"/"];
     
-    NSString *customerId = [urlComponents objectAtIndex:[Config qrCodeCustomerPosition]];
-    NSString *transactionId = [urlComponents objectAtIndex:[Config qrCodeTransactionPosition]];
-    
-    UIActivityIndicatorView  *av = [[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
-    av.frame=CGRectMake(145, 160, 25, 25);
-    av.tag  = 1;
-    
-    self.bookController.returnUrlValue = [NSString stringWithFormat:@"%@", [Config transactionConfirmationUrl:customerId transaction:transactionId asJSON:true]];
-    
-    [self.navigationController pushViewController:self.bookController animated:YES];
-    
-    [self.bookController.view addSubview:av];
-    [av startAnimating];
-    
-    [self.bookController loadTransaction:customerId transactionId:transactionId];
-    [self.bookController addPayPalButton];
-    
-    [av removeFromSuperview];
+    if([urlComponents count] >= 8) {
+        NSString *customerId = [urlComponents objectAtIndex:[Config qrCodeCustomerPosition]];
+        NSString *transactionId = [urlComponents objectAtIndex:[Config qrCodeTransactionPosition]];
+        
+        UIActivityIndicatorView  *av = [[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+        av.frame=CGRectMake(145, 160, 25, 25);
+        av.tag  = 1;
+        
+        self.bookController.returnUrlValue = [NSString stringWithFormat:@"%@", [Config transactionConfirmationUrl:customerId transaction:transactionId asJSON:true]];
+        
+        [self.navigationController pushViewController:self.bookController animated:YES];
+        
+        [self.bookController.view addSubview:av];
+        [av startAnimating];
+        
+        [self.bookController loadTransaction:customerId transactionId:transactionId];
+        [self.bookController addPayPalButton];
+        
+        [av removeFromSuperview];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QR-Code" 
+                                                        message:[NSString stringWithFormat:@"QR-Code konnte nicht verarbeitet werden: %@", qrCode]
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 - (IBAction)scanPressed:(id)sender {

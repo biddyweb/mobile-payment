@@ -8,6 +8,7 @@
 
 #import "mobile_paymentAppDelegate.h"
 #import "ECNetworkHandler.h"
+#import "Properties.h"
 
 
 @implementation mobile_paymentAppDelegate
@@ -34,6 +35,9 @@
     
     [NSThread detachNewThreadSelector:@selector(initializePayPal) toTarget:self withObject:nil];
     
+    //TODO: Build with a timer!
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+    
 	return YES;
 }
 
@@ -45,12 +49,13 @@
 
 - (void)receivedDeviceReferenceToken:(NSString *)token {
     // Stash the device token somewhere to use later. [ECNetworkHandler sharedInstance].deviceReferenceToken = token;
-    XLog(@"erfolg!");
+    //XLog(@"erfolg!");
+    //NSLog(@"%@", token);
 }
 - (void)couldNotFetchDeviceReferenceToken {
     // Record the errorMessage that tells what went wrong. 
-    NSLog(@"DEVICE REFERENCE TOKEN ERROR: %@", [PayPal getInstance].errorMessage);
-    [ECNetworkHandler sharedInstance].deviceReferenceToken = @"";
+    //NSLog(@"DEVICE REFERENCE TOKEN ERROR: %@", [PayPal getInstance].errorMessage);
+    //[ECNetworkHandler sharedInstance].deviceReferenceToken = @"";
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -91,6 +96,24 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    Properties *props = [[Properties alloc] init];
+    
+    NSString *customer_id = [props get:@"customer_id"];
+    NSString *token = [NSString stringWithFormat:@"%@", devToken];
+    
+    if(customer_id != @"") {
+        NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:token, @"apn_token", nil];
+        [props storeInDB:properties];
+    }
+    
+    [props release];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"%@", error.description);
 }
 
 - (void)dealloc
