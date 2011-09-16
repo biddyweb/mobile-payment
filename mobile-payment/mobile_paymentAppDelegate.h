@@ -12,9 +12,16 @@
 @interface mobile_paymentAppDelegate : NSObject <UIApplicationDelegate, DeviceReferenceTokenDelegate> {
     UIWindow *window;
 	UINavigationController *navController;
+    
+    NSString *contentType;
+    NSArray *contentInfo;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) NSString *contentType;
+@property (nonatomic, retain) NSArray *contentInfo;
+
+-(void)showNotification;
 
 @end

@@ -9,12 +9,15 @@
 #import "mobile_paymentAppDelegate.h"
 #import "ECNetworkHandler.h"
 #import "Properties.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "TransactionsViewController.h"
 
 
 @implementation mobile_paymentAppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
+@synthesize contentType, contentInfo;
 
 /*
  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -33,18 +36,12 @@
 	[_window addSubview:[_navigationController view]];
     [_window makeKeyAndVisible];
     
-    [NSThread detachNewThreadSelector:@selector(initializePayPal) toTarget:self withObject:nil];
+    [[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
     
     //TODO: Build with a timer!
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
     
 	return YES;
-}
-
--(void)initializePayPal {
-    //[[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
-    [[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
-    return;
 }
 
 - (void)receivedDeviceReferenceToken:(NSString *)token {
@@ -98,6 +95,7 @@
      */
 }
 
+#pragma mark APN
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
     Properties *props = [[Properties alloc] init];
     
@@ -116,8 +114,64 @@
     NSLog(@"%@", error.description);
 }
 
-- (void)dealloc
-{
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    contentType = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"type"]];
+    contentInfo = [[NSArray alloc] initWithArray:[[userInfo objectForKey:@"data"] objectForKey:@"values"]];
+    
+    NSString *alertMessage = [[apsInfo objectForKey:@"alert"] objectForKey:@"body"];
+    NSString *soundType = [apsInfo objectForKey:@"sound"];
+    UIApplicationState state = [application applicationState];
+
+    if (state == UIApplicationStateActive){
+        NSLog(@" It is in active state");
+        application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+        NSLog(@"%i", application.applicationIconBadgeNumber);
+        
+        NSLog(@"%@", userInfo);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mobile-Payment" 
+                                                        message:alertMessage
+                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Anzeigen", nil];
+        
+        int soundFile = 1002;
+        if(soundType == @"beep") {
+            soundFile = 1002;
+        }
+        
+        
+        AudioServicesPlaySystemSound(soundFile);
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        
+        [alert show];
+        [alert release];
+    } else {
+        if ([contentInfo count] > 0 ) {
+            [self showNotification];
+        }
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(1 == (int)buttonIndex) {
+        [self showNotification];
+    }
+}
+
+-(void)showNotification {
+    if([contentType isEqualToString:@"customer"]) {
+        TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
+        [transactionsController dismissModalViewControllerAnimated:NO];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        
+        [self.navigationController pushViewController:transactionsController animated:YES];
+        [transactionsController release];
+    }
+    [contentInfo release];
+    [contentType release];
+}
+
+- (void)dealloc {
     [_window release];
     [_navigationController release];
     [super dealloc];

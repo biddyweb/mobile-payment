@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "mobile-payment/mobile_paymentAppDelegate.m"
-         timestampString = "337816308.72929"
+         timestampString = "337900336.001694"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "11"
-         endingLineNumber = "11">
+         startingLineNumber = "13"
+         endingLineNumber = "13">
          <Locations>
             <Location
                shouldBeEnabled = "No"
