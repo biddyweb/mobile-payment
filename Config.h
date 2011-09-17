@@ -14,6 +14,7 @@
 +(NSString *)webUrlTEMP;
 
 +(NSURL *)transactionsUrlWith:(NSString *)hardwareId;
++(NSURL *)transactionsUrlWith:(NSString *)hardwareId andIds:(NSArray *)transactionIds;
 +(NSURL *)transactionsUrl:(NSString *)customerId;
 +(NSURL *)transactionUrl:(NSString *)customerId transaction:(NSString *)transactionId asJSON:(BOOL)asJSON;
 +(NSString *)transactionUrlAsString:(NSString *)customerId transaction:(NSString *)transactionId asJSON:(BOOL)asJSON;

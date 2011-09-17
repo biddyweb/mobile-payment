@@ -11,13 +11,16 @@
 #import "Properties.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "TransactionsViewController.h"
+#import "ASIHTTPRequest.h"
+#import "SBJsonParser.h"
+#import "Config.h"
 
 
 @implementation mobile_paymentAppDelegate
 
 @synthesize window = _window;
-@synthesize navigationController = _navigationController;
-@synthesize contentType, contentInfo;
+@synthesize tabBarController = _tabBarController;
+@synthesize apnContentType, apnContentInfo, apnHardwareId;
 
 /*
  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,18 +33,18 @@
  }
  */
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after app launch    
 	
-	[_window addSubview:[_navigationController view]];
-    [_window makeKeyAndVisible];
+	self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
     
     [[PayPal getInstance] fetchDeviceReferenceTokenWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX withDelegate:self];
     
     //TODO: Build with a timer!
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
     
-	return YES;
+    return YES;
 }
 
 - (void)receivedDeviceReferenceToken:(NSString *)token {
@@ -117,8 +120,9 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
     
-    contentType = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"type"]];
-    contentInfo = [[NSArray alloc] initWithArray:[[userInfo objectForKey:@"data"] objectForKey:@"values"]];
+    apnContentType = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"type"]];
+    apnContentInfo = [[NSArray alloc] initWithArray:[[userInfo objectForKey:@"data"] objectForKey:@"values"]];
+    apnHardwareId  = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"hardware_id"]];
     
     NSString *alertMessage = [[apsInfo objectForKey:@"alert"] objectForKey:@"body"];
     NSString *soundType = [apsInfo objectForKey:@"sound"];
@@ -146,7 +150,7 @@
         [alert show];
         [alert release];
     } else {
-        if ([contentInfo count] > 0 ) {
+        if ([apnContentInfo count] > 0 ) {
             [self showNotification];
         }
     }
@@ -159,21 +163,29 @@
 }
 
 -(void)showNotification {
-    if([contentType isEqualToString:@"customer"]) {
-        TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
-        [transactionsController dismissModalViewControllerAnimated:NO];
-        [self.navigationController popToRootViewControllerAnimated:NO];
+    if([apnContentType isEqualToString:@"customer"]) {
+        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
         
-        [self.navigationController pushViewController:transactionsController animated:YES];
-        [transactionsController release];
+            TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil transactionIds:apnContentInfo hardwareId:apnHardwareId];
+            [transactionsController dismissModalViewControllerAnimated:NO];
+            
+            UINavigationController *navcon = (UINavigationController*)self.tabBarController.selectedViewController;
+            
+            [navcon popToRootViewControllerAnimated:NO];
+            [navcon pushViewController:transactionsController animated:YES];
+            
+            [transactionsController release];
+
     }
-    [contentInfo release];
-    [contentType release];
+        
+    [apnHardwareId release];
+    [apnContentInfo release];
+    [apnContentType release];
 }
 
 - (void)dealloc {
     [_window release];
-    [_navigationController release];
+    [_tabBarController release];
     [super dealloc];
 }
 

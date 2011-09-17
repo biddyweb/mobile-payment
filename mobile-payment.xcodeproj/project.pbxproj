@@ -24,7 +24,7 @@
 		F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F257B83C1413B19600AF8B3D /* InfoPlist.strings */; };
 		F257B8401413B19600AF8B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B83F1413B19600AF8B3D /* main.m */; };
 		F257B8441413B19600AF8B3D /* mobile_paymentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */; };
-		F257B84A1413B19600AF8B3D /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F257B8491413B19600AF8B3D /* RootViewController.mm */; };
+		F257B84A1413B19600AF8B3D /* CustomerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F257B8491413B19600AF8B3D /* CustomerViewController.mm */; };
 		F257B8551413B19700AF8B3D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8541413B19700AF8B3D /* SenTestingKit.framework */; };
 		F257B8561413B19700AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
 		F257B8571413B19700AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
@@ -63,8 +63,7 @@
 		F257B8D41413B2C700AF8B3D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8C91413B2C700AF8B3D /* SBJsonWriter.m */; };
 		F257B8D91413B2DC00AF8B3D /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8D61413B2DC00AF8B3D /* Config.m */; };
 		F257B8DA1413B2DC00AF8B3D /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8D81413B2DC00AF8B3D /* Properties.m */; };
-		F257B8E51413B33100AF8B3D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E31413B33100AF8B3D /* RootViewController.xib */; };
-		F257B8E71413B35800AF8B3D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E61413B35800AF8B3D /* MainWindow.xib */; };
+		F257B8E51413B33100AF8B3D /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E31413B33100AF8B3D /* CustomerViewController.xib */; };
 		F257B8EE1413B37000AF8B3D /* PropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */; };
 		F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */; };
 		F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8EA1413B37000AF8B3D /* BookViewController.xib */; };
@@ -125,7 +124,11 @@
 		F25DA0DC1419517F00B48F2B /* TransactionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25DA0DA1419517F00B48F2B /* TransactionDetailViewController.xib */; };
 		F25DA0E014195BE100B48F2B /* CostomerWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25DA0DE14195BE000B48F2B /* CostomerWebsiteViewController.m */; };
 		F25DA0E114195BE100B48F2B /* CostomerWebsiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */; };
+		F2839AE21424034500EF6CE7 /* TabWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */; };
+		F2839AE7142404D400EF6CE7 /* TabWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2839AE6142404D400EF6CE7 /* TabWindow.xib */; };
 		F2C7BD271421508000A2743D /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C7BD261421508000A2743D /* libPayPalEC.a */; };
+		F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E7244314240F0200409D10 /* SellerViewController.xib */; };
+		F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2E7244614240F1600409D10 /* SellerViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +170,7 @@
 		F2562FD0141D587C0089593D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F2562FD2141D5BDE0089593D /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
 		F2562FD3141D5BDE0089593D /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
-		F2562FD6141D63120089593D /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		F2562FD6141D63120089593D /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "mobile-payment/iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		F257B82F1413B19600AF8B3D /* mobile-payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-payment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F257B8331413B19600AF8B3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F257B8351413B19600AF8B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -178,8 +181,8 @@
 		F257B8411413B19600AF8B3D /* mobile-payment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mobile-payment-Prefix.pch"; sourceTree = "<group>"; };
 		F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mobile_paymentAppDelegate.h; sourceTree = "<group>"; };
 		F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile_paymentAppDelegate.m; sourceTree = "<group>"; };
-		F257B8481413B19600AF8B3D /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		F257B8491413B19600AF8B3D /* RootViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
+		F257B8481413B19600AF8B3D /* CustomerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomerViewController.h; path = "mobile-payment/CustomerViewController.h"; sourceTree = "<group>"; };
+		F257B8491413B19600AF8B3D /* CustomerViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomerViewController.mm; path = "mobile-payment/CustomerViewController.mm"; sourceTree = "<group>"; };
 		F257B8531413B19700AF8B3D /* mobile-paymentTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-paymentTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F257B8541413B19700AF8B3D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F257B85D1413B19700AF8B3D /* mobile-paymentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mobile-paymentTests-Info.plist"; sourceTree = "<group>"; };
@@ -252,8 +255,7 @@
 		F257B8D71413B2DC00AF8B3D /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		F257B8D81413B2DC00AF8B3D /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		F257B8DC1413B2E900AF8B3D /* PayPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPal.h; sourceTree = "<group>"; };
-		F257B8E31413B33100AF8B3D /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = "mobile-payment/RootViewController.xib"; sourceTree = "<group>"; };
-		F257B8E61413B35800AF8B3D /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		F257B8E31413B33100AF8B3D /* CustomerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomerViewController.xib; path = "mobile-payment/CustomerViewController.xib"; sourceTree = "<group>"; };
 		F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesViewController.xib; sourceTree = "<group>"; };
 		F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenerateQRViewController.xib; sourceTree = "<group>"; };
 		F257B8EA1413B37000AF8B3D /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
@@ -342,7 +344,12 @@
 		F25DA0DD14195BE000B48F2B /* CostomerWebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomerWebsiteViewController.h; sourceTree = "<group>"; };
 		F25DA0DE14195BE000B48F2B /* CostomerWebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomerWebsiteViewController.m; sourceTree = "<group>"; };
 		F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostomerWebsiteViewController.xib; sourceTree = "<group>"; };
+		F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TabWindow-iPad.xib"; sourceTree = "<group>"; };
+		F2839AE6142404D400EF6CE7 /* TabWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabWindow.xib; sourceTree = "<group>"; };
 		F2C7BD261421508000A2743D /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
+		F2E7244314240F0200409D10 /* SellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SellerViewController.xib; path = "mobile-payment/SellerViewController.xib"; sourceTree = "<group>"; };
+		F2E7244514240F1600409D10 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SellerViewController.h; path = "mobile-payment/SellerViewController.h"; sourceTree = "<group>"; };
+		F2E7244614240F1600409D10 /* SellerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SellerViewController.mm; path = "mobile-payment/SellerViewController.mm"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,7 +418,7 @@
 		F2562FD5141D63090089593D /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				F2562FD6141D63120089593D /* MainWindow-iPad.xib */,
+				F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -469,12 +476,10 @@
 			children = (
 				F2562FD5141D63090089593D /* iPad */,
 				F257B8F41413B3AC00AF8B3D /* beep-beep.aiff */,
-				F257B8E61413B35800AF8B3D /* MainWindow.xib */,
 				F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */,
 				F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */,
-				F257B8481413B19600AF8B3D /* RootViewController.h */,
-				F257B8491413B19600AF8B3D /* RootViewController.mm */,
 				F257B83A1413B19600AF8B3D /* Supporting Files */,
+				F2839AE6142404D400EF6CE7 /* TabWindow.xib */,
 			);
 			path = "mobile-payment";
 			sourceTree = "<group>";
@@ -539,6 +544,10 @@
 				F20A83A1141B696B00757691 /* Booking */,
 				F20A83A0141B694D00757691 /* QR-Code */,
 				F25DA0D514193B7900B48F2B /* transactions */,
+				F257B8481413B19600AF8B3D /* CustomerViewController.h */,
+				F257B8491413B19600AF8B3D /* CustomerViewController.mm */,
+				F2E7244514240F1600409D10 /* SellerViewController.h */,
+				F2E7244614240F1600409D10 /* SellerViewController.mm */,
 				F257B8871413B29B00AF8B3D /* PropertiesViewController.h */,
 				F257B8881413B29B00AF8B3D /* PropertiesViewController.m */,
 				F257B8891413B29B00AF8B3D /* TestViewController.h */,
@@ -615,16 +624,13 @@
 		F257B87A1413B24500AF8B3D /* XIB */ = {
 			isa = PBXGroup;
 			children = (
-				F257B8E31413B33100AF8B3D /* RootViewController.xib */,
+				F2839AE31424034E00EF6CE7 /* iPad */,
+				F2839ADA1423FCAF00EF6CE7 /* Customer */,
+				F2839ADB1423FCF600EF6CE7 /* Seller */,
 				F20A83A8141CBA8000757691 /* CatalogViewController.xib */,
 				F2562FC8141D238F0089593D /* LoadingViewController.xib */,
 				F2562FCD141D55420089593D /* MapsViewController.xib */,
-				F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */,
-				F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */,
-				F257B8EA1413B37000AF8B3D /* BookViewController.xib */,
-				F257B8EB1413B37000AF8B3D /* OrderResultsViewController.xib */,
 				F257B8EC1413B37000AF8B3D /* TestViewController.xib */,
-				F257B8ED1413B37000AF8B3D /* QRCodeViewController.xib */,
 				F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */,
 				F25DA0D614193CB800B48F2B /* TransactionsViewController.xib */,
 				F25DA0DA1419517F00B48F2B /* TransactionDetailViewController.xib */,
@@ -756,6 +762,35 @@
 			name = transactions;
 			sourceTree = "<group>";
 		};
+		F2839ADA1423FCAF00EF6CE7 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				F257B8EA1413B37000AF8B3D /* BookViewController.xib */,
+				F257B8E31413B33100AF8B3D /* CustomerViewController.xib */,
+				F257B8EB1413B37000AF8B3D /* OrderResultsViewController.xib */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
+		F2839ADB1423FCF600EF6CE7 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				F2E7244314240F0200409D10 /* SellerViewController.xib */,
+				F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */,
+				F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */,
+				F257B8ED1413B37000AF8B3D /* QRCodeViewController.xib */,
+			);
+			name = Seller;
+			sourceTree = "<group>";
+		};
+		F2839AE31424034E00EF6CE7 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F2562FD6141D63120089593D /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -843,8 +878,7 @@
 				F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */,
 				F257B86E1413B1AC00AF8B3D /* Default.png in Resources */,
 				F257B8701413B1AF00AF8B3D /* Default@2x.png in Resources */,
-				F257B8E51413B33100AF8B3D /* RootViewController.xib in Resources */,
-				F257B8E71413B35800AF8B3D /* MainWindow.xib in Resources */,
+				F257B8E51413B33100AF8B3D /* CustomerViewController.xib in Resources */,
 				F257B8EE1413B37000AF8B3D /* PropertiesViewController.xib in Resources */,
 				F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */,
 				F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */,
@@ -873,6 +907,9 @@
 				F2562FCA141D238F0089593D /* LoadingViewController.xib in Resources */,
 				F2562FCF141D55420089593D /* MapsViewController.xib in Resources */,
 				F2562FD7141D63120089593D /* MainWindow-iPad.xib in Resources */,
+				F2839AE21424034500EF6CE7 /* TabWindow-iPad.xib in Resources */,
+				F2839AE7142404D400EF6CE7 /* TabWindow.xib in Resources */,
+				F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,7 +947,7 @@
 			files = (
 				F257B8401413B19600AF8B3D /* main.m in Sources */,
 				F257B8441413B19600AF8B3D /* mobile_paymentAppDelegate.m in Sources */,
-				F257B84A1413B19600AF8B3D /* RootViewController.mm in Sources */,
+				F257B84A1413B19600AF8B3D /* CustomerViewController.mm in Sources */,
 				F257B88D1413B29B00AF8B3D /* BookViewController.m in Sources */,
 				F257B88E1413B29B00AF8B3D /* OrderResultsViewController.m in Sources */,
 				F257B88F1413B29B00AF8B3D /* WebViewController.m in Sources */,
@@ -970,6 +1007,7 @@
 				F2562FC9141D238F0089593D /* LoadingViewController.m in Sources */,
 				F2562FCE141D55420089593D /* MapsViewController.m in Sources */,
 				F2562FD4141D5BDE0089593D /* AddressAnnotation.m in Sources */,
+				F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

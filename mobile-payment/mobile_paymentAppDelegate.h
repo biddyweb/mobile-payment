@@ -9,18 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "PayPal.h"
 
-@interface mobile_paymentAppDelegate : NSObject <UIApplicationDelegate, DeviceReferenceTokenDelegate> {
+@interface mobile_paymentAppDelegate : NSObject <UIApplicationDelegate, DeviceReferenceTokenDelegate, UITabBarControllerDelegate> {
     UIWindow *window;
-	UINavigationController *navController;
     
-    NSString *contentType;
-    NSArray *contentInfo;
+    NSString *apnHardwareId;
+    NSString *apnContentType;
+    NSArray *apnContentInfo;
 }
 
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic, retain) NSString *contentType;
-@property (nonatomic, retain) NSArray *contentInfo;
+@property (nonatomic, retain) NSString *apnHardwareId;
+@property (nonatomic, retain) NSString *apnContentType;
+@property (nonatomic, retain) NSArray *apnContentInfo;
 
 -(void)showNotification;
 

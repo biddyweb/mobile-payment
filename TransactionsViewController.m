@@ -73,6 +73,45 @@
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transactionIds:(NSArray *)transactionIds hardwareId:(NSString *)hardwareId {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        NSURL *url = [Config transactionsUrlWith:hardwareId andIds:transactionIds];
+        
+        NSLog(@"%@", url);
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request startSynchronous];
+        
+        NSError *error = [request error];
+        if (!error) {
+            NSString *response = [request responseString];
+            NSError *json_error;
+            SBJsonParser *json = [[SBJsonParser new] autorelease];
+            NSArray *values = [json objectWithString:response error:&json_error];
+            
+            table = [[NSMutableArray alloc] init];
+            
+            for (int i=0,n=[values count]; i<n; i++) {
+                [table addObject:
+                 [NSDictionary dictionaryWithObjectsAndKeys:
+                  [[values objectAtIndex:i] objectForKey:@"amount"], @"amount", 
+                  [[values objectAtIndex:i] objectForKey:@"paid_at"], @"paid_at",
+                  [[values objectAtIndex:i] objectForKey:@"transaction_id"], @"transaction_id",
+                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"name"], @"customer",
+                  [[values objectAtIndex:i] objectForKey:@"currency_key"], @"currency_key",
+                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"website_url"], @"website_url",
+                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"street"], @"street",
+                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"zip"], @"zip",
+                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"location"], @"location",
+                  nil]
+                 ];
+            }
+        }
+    }
+    
+    return self;
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

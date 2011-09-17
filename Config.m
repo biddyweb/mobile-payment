@@ -33,6 +33,10 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@transactions.json?hardware_id=%@", [Config webUrlTEMP], hardwareId]];
 }
 
++(NSURL *)transactionsUrlWith:(NSString *)hardwareId andIds:(NSArray *)transactionIds {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@transactions.json?hardware_id=%@&ids=%@", [Config webUrlTEMP], hardwareId, [transactionIds componentsJoinedByString:@","]]];
+}
+
 +(NSURL *)transactionsUrl:(NSString *)customerId {
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], [NSString stringWithFormat:@"customers/%@/transactions.json", customerId]]];
 }
