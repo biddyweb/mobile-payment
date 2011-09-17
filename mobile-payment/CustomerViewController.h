@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  CustomerViewController.h
 //  mobil-payment
 //
 //  Created by Torben Toepper on 24.08.11.
@@ -14,11 +14,10 @@
 
 @class BookViewController;
 
-@interface RootViewController : UIViewController <ZXingDelegate> {
+@interface CustomerViewController : UIViewController <ZXingDelegate> {
     IBOutlet UIButton *scanButton;
     NSString *resultsToDisplay;
     BookViewController *booksController;
-    GenerateQRViewController *generateQrController;
     
     BOOL tokenFetchAttempted;
 }
@@ -27,7 +26,6 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *scanButton;
 @property (nonatomic, retain) IBOutlet BookViewController *bookController;
-@property (nonatomic, retain) IBOutlet GenerateQRViewController *generateQrController;
 @property (nonatomic, copy) NSString *resultsToDisplay;
 
 - (void)showBooking:(NSString *)qrCode;
@@ -35,7 +33,5 @@
 - (IBAction)scanPressed:(id)sender;
 - (IBAction)bookPressed:(id)sender;
 - (IBAction)transactionsPressed:(id)sender;
-- (IBAction)generatePressed:(id)sender;
-- (IBAction)myDataPressed:(id)sender;
 
 @end
