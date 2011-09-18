@@ -34,6 +34,7 @@
  */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"%@", launchOptions);
     // Override point for customization after app launch    
 	
 	self.window.rootViewController = self.tabBarController;
@@ -43,6 +44,16 @@
     
     //TODO: Build with a timer!
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+    
+    // APN Handler
+    if ([launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] != nil) {
+        NSDictionary *userInfo = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+        apnContentType = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"type"]];
+        apnContentInfo = [[NSArray alloc] initWithArray:[[userInfo objectForKey:@"data"] objectForKey:@"values"]];
+        apnHardwareId  = [[NSString alloc] initWithString:[[userInfo objectForKey:@"data"] objectForKey:@"hardware_id"]];
+        
+        [self showNotification];
+    }
     
     return YES;
 }
