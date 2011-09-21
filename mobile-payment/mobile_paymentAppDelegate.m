@@ -34,7 +34,6 @@
  */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSLog(@"%@", launchOptions);
     // Override point for customization after app launch    
 	
 	self.window.rootViewController = self.tabBarController;

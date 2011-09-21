@@ -65,13 +65,14 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="509939577">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="676290608">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">button_bg.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="503367639">
@@ -103,11 +104,12 @@
 					<object class="IBUIButton" id="442925327">
 						<reference key="NSNextResponder" ref="1073060654"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{97, 165}, {127, 37}}</string>
+						<string key="NSFrame">{{97, 165}, {126, 37}}</string>
 						<reference key="NSSuperview" ref="1073060654"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="100846341"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
+						<reference key="IBUIBackgroundColor" ref="228438660"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -116,11 +118,9 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Transaktionen</string>
 						<reference key="IBUIHighlightedTitleColor" ref="228438660"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<reference key="IBUINormalTitleShadowColor" ref="509939577"/>
+						<reference key="IBUINormalBackgroundImage" ref="676290608"/>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {320, 367}}</string>
@@ -136,7 +136,7 @@
 					</object>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics" id="455287615">
+				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
 					<bool key="IBUIPrompted">NO</bool>
 				</object>
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics" id="827666295"/>
@@ -144,8 +144,12 @@
 			</object>
 			<object class="IBUIViewController" id="301259252">
 				<reference key="IBUISimulatedBottomBarMetrics" ref="827666295"/>
-				<reference key="IBUISimulatedTopBarMetrics" ref="455287615"/>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
+					<bool key="IBUIPrompted">NO</bool>
+				</object>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">1</int>
 					<int key="interfaceOrientation">1</int>
@@ -241,6 +245,7 @@
 						<int key="objectID">14</int>
 						<reference key="object" ref="301259252"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Book View Controller</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
@@ -267,6 +272,7 @@
 					<string>14.CustomClassName</string>
 					<string>14.IBPluginDependency</string>
 					<string>25.IBPluginDependency</string>
+					<string>25.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>6.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 				</object>
@@ -281,6 +287,7 @@
 					<string>BookViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -447,8 +454,17 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">appsymbol_r.png</string>
-			<string key="NS.object.0">{114, 114}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>appsymbol_r.png</string>
+				<string>button_bg.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{114, 114}</string>
+				<string>{164, 36}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">534</string>
 	</data>

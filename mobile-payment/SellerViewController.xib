@@ -66,13 +66,14 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="509939577">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="725888884">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">button_bg.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="932150567">
@@ -81,7 +82,6 @@
 						<string key="NSFrame">{{97, 168}, {127, 37}}</string>
 						<reference key="NSSuperview" ref="1073060654"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -91,11 +91,9 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Meine Daten</string>
 						<reference key="IBUIHighlightedTitleColor" ref="228438660"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<reference key="IBUINormalTitleShadowColor" ref="509939577"/>
+						<reference key="IBUINormalBackgroundImage" ref="725888884"/>
 					</object>
 					<object class="IBUIButton" id="442925327">
 						<reference key="NSNextResponder" ref="1073060654"/>
@@ -113,11 +111,9 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Transaktionen</string>
 						<reference key="IBUIHighlightedTitleColor" ref="228438660"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<reference key="IBUINormalTitleShadowColor" ref="509939577"/>
+						<reference key="IBUINormalBackgroundImage" ref="725888884"/>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 44}, {320, 387}}</string>
@@ -400,6 +396,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">button_bg.png</string>
+			<string key="NS.object.0">{164, 36}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">534</string>
 	</data>
 </archive>

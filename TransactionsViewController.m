@@ -127,6 +127,7 @@
     [super viewDidLoad];
     
     self.title = @"Transaktionen";
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 
     /*
     UIDevice *myDevice = [UIDevice currentDevice];

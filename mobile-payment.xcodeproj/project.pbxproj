@@ -129,6 +129,7 @@
 		F2C7BD271421508000A2743D /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C7BD261421508000A2743D /* libPayPalEC.a */; };
 		F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E7244314240F0200409D10 /* SellerViewController.xib */; };
 		F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2E7244614240F1600409D10 /* SellerViewController.mm */; };
+		F2FB10EF1427BC7300DD6DBD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FB10EE1427BC7300DD6DBD /* button_bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,10 +347,13 @@
 		F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostomerWebsiteViewController.xib; sourceTree = "<group>"; };
 		F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TabWindow-iPad.xib"; sourceTree = "<group>"; };
 		F2839AE6142404D400EF6CE7 /* TabWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabWindow.xib; sourceTree = "<group>"; };
+		F2972915142A7E0D00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "/Users/shady/Desktop/iPhone-Payment/mobile-payment/mobile-paymentTests/de.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		F2972916142A7E0D00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "/Users/shady/Desktop/iPhone-Payment/mobile-payment/mobile-payment/de.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		F2C7BD261421508000A2743D /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
 		F2E7244314240F0200409D10 /* SellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SellerViewController.xib; path = "mobile-payment/SellerViewController.xib"; sourceTree = "<group>"; };
 		F2E7244514240F1600409D10 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SellerViewController.h; path = "mobile-payment/SellerViewController.h"; sourceTree = "<group>"; };
 		F2E7244614240F1600409D10 /* SellerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SellerViewController.mm; path = "mobile-payment/SellerViewController.mm"; sourceTree = "<group>"; };
+		F2FB10EE1427BC7300DD6DBD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_bg.png; path = images/button_bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,6 +728,7 @@
 				F20A83A2141CB08F00757691 /* appsymbol.png */,
 				F257B86F1413B1AF00AF8B3D /* Default@2x.png */,
 				F257B86D1413B1AC00AF8B3D /* Default.png */,
+				F2FB10EE1427BC7300DD6DBD /* button_bg.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -910,6 +915,7 @@
 				F2839AE21424034500EF6CE7 /* TabWindow-iPad.xib in Resources */,
 				F2839AE7142404D400EF6CE7 /* TabWindow.xib in Resources */,
 				F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */,
+				F2FB10EF1427BC7300DD6DBD /* button_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1045,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F257B83D1413B19600AF8B3D /* en */,
+				F2972916142A7E0D00A77B1B /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1047,6 +1054,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F257B85F1413B19700AF8B3D /* en */,
+				F2972915142A7E0D00A77B1B /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1115,7 +1123,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C7E925D-3CDC-4CD4-9FB3-4217246AD49C";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1138,7 +1146,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
