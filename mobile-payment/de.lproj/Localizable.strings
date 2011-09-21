@@ -1,0 +1,4 @@
+"CUSTOMER.TITLE" = "Kunde";
+
+"ALERT.CUSTOMER.QRCODE" = "QR-Code";
+"ALERT.CUSTOMER.QRCODE_MESSAGE" = "QR-Code konnte nicht verarbeitet werden: %@";

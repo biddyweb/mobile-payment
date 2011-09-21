@@ -21,7 +21,6 @@
 		F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
 		F257B8361413B19600AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
 		F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8371413B19600AF8B3D /* CoreGraphics.framework */; };
-		F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F257B83C1413B19600AF8B3D /* InfoPlist.strings */; };
 		F257B8401413B19600AF8B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B83F1413B19600AF8B3D /* main.m */; };
 		F257B8441413B19600AF8B3D /* mobile_paymentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8431413B19600AF8B3D /* mobile_paymentAppDelegate.m */; };
 		F257B84A1413B19600AF8B3D /* CustomerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F257B8491413B19600AF8B3D /* CustomerViewController.mm */; };
@@ -29,7 +28,6 @@
 		F257B8561413B19700AF8B3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8331413B19600AF8B3D /* UIKit.framework */; };
 		F257B8571413B19700AF8B3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8351413B19600AF8B3D /* Foundation.framework */; };
 		F257B8581413B19700AF8B3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8371413B19600AF8B3D /* CoreGraphics.framework */; };
-		F257B8601413B19700AF8B3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F257B85E1413B19700AF8B3D /* InfoPlist.strings */; };
 		F257B8621413B19700AF8B3D /* mobile_paymentTests.h in Resources */ = {isa = PBXBuildFile; fileRef = F257B8611413B19700AF8B3D /* mobile_paymentTests.h */; };
 		F257B8641413B19700AF8B3D /* mobile_paymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8631413B19700AF8B3D /* mobile_paymentTests.m */; };
 		F257B86E1413B1AC00AF8B3D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F257B86D1413B1AC00AF8B3D /* Default.png */; };
@@ -63,7 +61,6 @@
 		F257B8D41413B2C700AF8B3D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8C91413B2C700AF8B3D /* SBJsonWriter.m */; };
 		F257B8D91413B2DC00AF8B3D /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8D61413B2DC00AF8B3D /* Config.m */; };
 		F257B8DA1413B2DC00AF8B3D /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8D81413B2DC00AF8B3D /* Properties.m */; };
-		F257B8E51413B33100AF8B3D /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E31413B33100AF8B3D /* CustomerViewController.xib */; };
 		F257B8EE1413B37000AF8B3D /* PropertiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */; };
 		F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */; };
 		F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8EA1413B37000AF8B3D /* BookViewController.xib */; };
@@ -126,6 +123,11 @@
 		F25DA0E114195BE100B48F2B /* CostomerWebsiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */; };
 		F2839AE21424034500EF6CE7 /* TabWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */; };
 		F2839AE7142404D400EF6CE7 /* TabWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2839AE6142404D400EF6CE7 /* TabWindow.xib */; };
+		F297291C142A891A00A77B1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F297291A142A891A00A77B1B /* InfoPlist.strings */; };
+		F2972923142A8B1D00A77B1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2972921142A8B1D00A77B1B /* Localizable.strings */; };
+		F2972929142A8B7A00A77B1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2972925142A8B7A00A77B1B /* InfoPlist.strings */; };
+		F297292A142A8B7A00A77B1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2972927142A8B7A00A77B1B /* Localizable.strings */; };
+		F297292F142A8D9000A77B1B /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2972930142A8D9000A77B1B /* CustomerViewController.xib */; };
 		F2C7BD271421508000A2743D /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C7BD261421508000A2743D /* libPayPalEC.a */; };
 		F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E7244314240F0200409D10 /* SellerViewController.xib */; };
 		F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2E7244614240F1600409D10 /* SellerViewController.mm */; };
@@ -177,7 +179,6 @@
 		F257B8351413B19600AF8B3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F257B8371413B19600AF8B3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F257B83B1413B19600AF8B3D /* mobile-payment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mobile-payment-Info.plist"; sourceTree = "<group>"; };
-		F257B83D1413B19600AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F257B83F1413B19600AF8B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F257B8411413B19600AF8B3D /* mobile-payment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mobile-payment-Prefix.pch"; sourceTree = "<group>"; };
 		F257B8421413B19600AF8B3D /* mobile_paymentAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mobile_paymentAppDelegate.h; sourceTree = "<group>"; };
@@ -187,7 +188,6 @@
 		F257B8531413B19700AF8B3D /* mobile-paymentTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-paymentTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F257B8541413B19700AF8B3D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F257B85D1413B19700AF8B3D /* mobile-paymentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mobile-paymentTests-Info.plist"; sourceTree = "<group>"; };
-		F257B85F1413B19700AF8B3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F257B8611413B19700AF8B3D /* mobile_paymentTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mobile_paymentTests.h; sourceTree = "<group>"; };
 		F257B8631413B19700AF8B3D /* mobile_paymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile_paymentTests.m; sourceTree = "<group>"; };
 		F257B86D1413B1AC00AF8B3D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -256,7 +256,6 @@
 		F257B8D71413B2DC00AF8B3D /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		F257B8D81413B2DC00AF8B3D /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		F257B8DC1413B2E900AF8B3D /* PayPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPal.h; sourceTree = "<group>"; };
-		F257B8E31413B33100AF8B3D /* CustomerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomerViewController.xib; path = "mobile-payment/CustomerViewController.xib"; sourceTree = "<group>"; };
 		F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesViewController.xib; sourceTree = "<group>"; };
 		F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenerateQRViewController.xib; sourceTree = "<group>"; };
 		F257B8EA1413B37000AF8B3D /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
@@ -347,8 +346,11 @@
 		F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CostomerWebsiteViewController.xib; sourceTree = "<group>"; };
 		F2839AE11424034500EF6CE7 /* TabWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TabWindow-iPad.xib"; sourceTree = "<group>"; };
 		F2839AE6142404D400EF6CE7 /* TabWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabWindow.xib; sourceTree = "<group>"; };
-		F2972915142A7E0D00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "/Users/shady/Desktop/iPhone-Payment/mobile-payment/mobile-paymentTests/de.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
-		F2972916142A7E0D00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "/Users/shady/Desktop/iPhone-Payment/mobile-payment/mobile-payment/de.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		F297291B142A891A00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = InfoPlist.strings; sourceTree = "<group>"; };
+		F2972922142A8B1D00A77B1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
+		F2972926142A8B7A00A77B1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		F2972928142A8B7A00A77B1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		F2972930142A8D9000A77B1B /* CustomerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomerViewController.xib; path = "mobile-payment/CustomerViewController.xib"; sourceTree = "<group>"; };
 		F2C7BD261421508000A2743D /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
 		F2E7244314240F0200409D10 /* SellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SellerViewController.xib; path = "mobile-payment/SellerViewController.xib"; sourceTree = "<group>"; };
 		F2E7244514240F1600409D10 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SellerViewController.h; path = "mobile-payment/SellerViewController.h"; sourceTree = "<group>"; };
@@ -491,9 +493,10 @@
 		F257B83A1413B19600AF8B3D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F2972919142A891A00A77B1B /* de.lproj */,
+				F2972924142A8B7A00A77B1B /* en.lproj */,
 				F257B9101413B5DC00AF8B3D /* NetworkHandler */,
 				F257B83B1413B19600AF8B3D /* mobile-payment-Info.plist */,
-				F257B83C1413B19600AF8B3D /* InfoPlist.strings */,
 				F257B83F1413B19600AF8B3D /* main.m */,
 				F257B8411413B19600AF8B3D /* mobile-payment-Prefix.pch */,
 			);
@@ -514,7 +517,6 @@
 			isa = PBXGroup;
 			children = (
 				F257B85D1413B19700AF8B3D /* mobile-paymentTests-Info.plist */,
-				F257B85E1413B19700AF8B3D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -771,7 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				F257B8EA1413B37000AF8B3D /* BookViewController.xib */,
-				F257B8E31413B33100AF8B3D /* CustomerViewController.xib */,
+				F2972930142A8D9000A77B1B /* CustomerViewController.xib */,
 				F257B8EB1413B37000AF8B3D /* OrderResultsViewController.xib */,
 			);
 			name = Customer;
@@ -794,6 +796,24 @@
 				F2562FD6141D63120089593D /* MainWindow-iPad.xib */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		F2972919142A891A00A77B1B /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F297291A142A891A00A77B1B /* InfoPlist.strings */,
+				F2972921142A8B1D00A77B1B /* Localizable.strings */,
+			);
+			path = de.lproj;
+			sourceTree = "<group>";
+		};
+		F2972924142A8B7A00A77B1B /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F2972925142A8B7A00A77B1B /* InfoPlist.strings */,
+				F2972927142A8B7A00A77B1B /* Localizable.strings */,
+			);
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -847,6 +867,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = F257B8241413B19600AF8B3D;
 			productRefGroup = F257B8301413B19600AF8B3D /* Products */;
@@ -880,10 +901,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F257B83E1413B19600AF8B3D /* InfoPlist.strings in Resources */,
 				F257B86E1413B1AC00AF8B3D /* Default.png in Resources */,
 				F257B8701413B1AF00AF8B3D /* Default@2x.png in Resources */,
-				F257B8E51413B33100AF8B3D /* CustomerViewController.xib in Resources */,
+				F297292F142A8D9000A77B1B /* CustomerViewController.xib in Resources */,
 				F257B8EE1413B37000AF8B3D /* PropertiesViewController.xib in Resources */,
 				F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */,
 				F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */,
@@ -916,6 +936,10 @@
 				F2839AE7142404D400EF6CE7 /* TabWindow.xib in Resources */,
 				F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */,
 				F2FB10EF1427BC7300DD6DBD /* button_bg.png in Resources */,
+				F297291C142A891A00A77B1B /* InfoPlist.strings in Resources */,
+				F2972923142A8B1D00A77B1B /* Localizable.strings in Resources */,
+				F2972929142A8B7A00A77B1B /* InfoPlist.strings in Resources */,
+				F297292A142A8B7A00A77B1B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,7 +947,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F257B8601413B19700AF8B3D /* InfoPlist.strings in Resources */,
 				F257B8621413B19700AF8B3D /* mobile_paymentTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,22 +1064,36 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F257B83C1413B19600AF8B3D /* InfoPlist.strings */ = {
+		F297291A142A891A00A77B1B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F257B83D1413B19600AF8B3D /* en */,
-				F2972916142A7E0D00A77B1B /* de */,
+				F297291B142A891A00A77B1B /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		F257B85E1413B19700AF8B3D /* InfoPlist.strings */ = {
+		F2972921142A8B1D00A77B1B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F257B85F1413B19700AF8B3D /* en */,
-				F2972915142A7E0D00A77B1B /* de */,
+				F2972922142A8B1D00A77B1B /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F2972925142A8B7A00A77B1B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2972926142A8B7A00A77B1B /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2972927142A8B7A00A77B1B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2972928142A8B7A00A77B1B /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

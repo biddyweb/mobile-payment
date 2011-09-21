@@ -23,18 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:NSLocalizedString(@"TITLE", @"Kunde")];
+    [self setTitle:NSLocalizedString(@"CUSTOMER.TITLE", @"Customer")];
     [scanButton setBackgroundColor:[UIColor clearColor]];
     CALayer *downButtonLayer = [scanButton layer];
     [downButtonLayer setBorderWidth:0.0];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
-    NSString *currentLanguage = [languages objectAtIndex:0];
-    
-    NSLog(@"Current Locale: %@", [[NSLocale currentLocale] localeIdentifier]);
-    NSLog(@"Current language: %@", currentLanguage);
-    NSLog(@"Welcome Text: %@", NSLocalizedString(@"WelcomeKey", @""));
     
     if (!tokenFetchAttempted) {
 		tokenFetchAttempted = TRUE;
@@ -75,8 +67,8 @@
         
         [av removeFromSuperview];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QR-Code" 
-                                                        message:[NSString stringWithFormat:@"QR-Code konnte nicht verarbeitet werden: %@", qrCode]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT.CUSTOMER.QRCODE", @"QR-Code") 
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"ALERT.CUSTOMER.QRCODE_MESSAGE", nil), qrCode]
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         [alert release];
