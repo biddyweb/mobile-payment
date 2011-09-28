@@ -128,7 +128,14 @@
 		F2972929142A8B7A00A77B1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2972925142A8B7A00A77B1B /* InfoPlist.strings */; };
 		F297292A142A8B7A00A77B1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2972927142A8B7A00A77B1B /* Localizable.strings */; };
 		F297292F142A8D9000A77B1B /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2972930142A8D9000A77B1B /* CustomerViewController.xib */; };
+		F2AB83BD142FBC8C00888089 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83BC142FBC8C00888089 /* loading.png */; };
+		F2AB83C1142FBEB000888089 /* bezahlen.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83BE142FBEB000888089 /* bezahlen.png */; };
+		F2AB83C2142FBEB000888089 /* finden.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83BF142FBEB000888089 /* finden.png */; };
+		F2AB83C3142FBEB000888089 /* haendler.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83C0142FBEB000888089 /* haendler.png */; };
 		F2C7BD271421508000A2743D /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C7BD261421508000A2743D /* libPayPalEC.a */; };
+		F2E54C1A14312A8F00CA078C /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E54C1814312A8F00CA078C /* FindViewController.m */; };
+		F2E54C1B14312A8F00CA078C /* FindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E54C1914312A8F00CA078C /* FindViewController.xib */; };
+		F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E54C1C14312CCF00CA078C /* CoreLocation.framework */; };
 		F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E7244314240F0200409D10 /* SellerViewController.xib */; };
 		F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2E7244614240F1600409D10 /* SellerViewController.mm */; };
 		F2FB10EF1427BC7300DD6DBD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FB10EE1427BC7300DD6DBD /* button_bg.png */; };
@@ -351,7 +358,15 @@
 		F2972926142A8B7A00A77B1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F2972928142A8B7A00A77B1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		F2972930142A8D9000A77B1B /* CustomerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomerViewController.xib; path = "mobile-payment/CustomerViewController.xib"; sourceTree = "<group>"; };
+		F2AB83BC142FBC8C00888089 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading.png; path = images/loading.png; sourceTree = "<group>"; };
+		F2AB83BE142FBEB000888089 /* bezahlen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bezahlen.png; path = images/bezahlen.png; sourceTree = "<group>"; };
+		F2AB83BF142FBEB000888089 /* finden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finden.png; path = images/finden.png; sourceTree = "<group>"; };
+		F2AB83C0142FBEB000888089 /* haendler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haendler.png; path = images/haendler.png; sourceTree = "<group>"; };
 		F2C7BD261421508000A2743D /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
+		F2E54C1714312A8F00CA078C /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		F2E54C1814312A8F00CA078C /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		F2E54C1914312A8F00CA078C /* FindViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindViewController.xib; sourceTree = "<group>"; };
+		F2E54C1C14312CCF00CA078C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F2E7244314240F0200409D10 /* SellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SellerViewController.xib; path = "mobile-payment/SellerViewController.xib"; sourceTree = "<group>"; };
 		F2E7244514240F1600409D10 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SellerViewController.h; path = "mobile-payment/SellerViewController.h"; sourceTree = "<group>"; };
 		F2E7244614240F1600409D10 /* SellerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SellerViewController.mm; path = "mobile-payment/SellerViewController.mm"; sourceTree = "<group>"; };
@@ -363,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */,
 				F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */,
 				F257B9601413B6E500AF8B3D /* libz.1.2.3.dylib in Frameworks */,
 				F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */,
@@ -456,6 +472,7 @@
 		F257B8321413B19600AF8B3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2E54C1C14312CCF00CA078C /* CoreLocation.framework */,
 				F2562FD0141D587C0089593D /* MapKit.framework */,
 				F257B95F1413B6E500AF8B3D /* libz.1.2.3.dylib */,
 				F257B95E1413B6D800AF8B3D /* CoreGraphics.framework */,
@@ -550,6 +567,7 @@
 				F20A83A1141B696B00757691 /* Booking */,
 				F20A83A0141B694D00757691 /* QR-Code */,
 				F25DA0D514193B7900B48F2B /* transactions */,
+				F2E54C1614312A6100CA078C /* Find */,
 				F257B8481413B19600AF8B3D /* CustomerViewController.h */,
 				F257B8491413B19600AF8B3D /* CustomerViewController.mm */,
 				F2E7244514240F1600409D10 /* SellerViewController.h */,
@@ -633,6 +651,7 @@
 				F2839AE31424034E00EF6CE7 /* iPad */,
 				F2839ADA1423FCAF00EF6CE7 /* Customer */,
 				F2839ADB1423FCF600EF6CE7 /* Seller */,
+				F2E54C1514312A3C00CA078C /* Find */,
 				F20A83A8141CBA8000757691 /* CatalogViewController.xib */,
 				F2562FC8141D238F0089593D /* LoadingViewController.xib */,
 				F2562FCD141D55420089593D /* MapsViewController.xib */,
@@ -731,6 +750,10 @@
 				F257B86F1413B1AF00AF8B3D /* Default@2x.png */,
 				F257B86D1413B1AC00AF8B3D /* Default.png */,
 				F2FB10EE1427BC7300DD6DBD /* button_bg.png */,
+				F2AB83BC142FBC8C00888089 /* loading.png */,
+				F2AB83BE142FBEB000888089 /* bezahlen.png */,
+				F2AB83BF142FBEB000888089 /* finden.png */,
+				F2AB83C0142FBEB000888089 /* haendler.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -814,6 +837,23 @@
 				F2972927142A8B7A00A77B1B /* Localizable.strings */,
 			);
 			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		F2E54C1514312A3C00CA078C /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				F2E54C1914312A8F00CA078C /* FindViewController.xib */,
+			);
+			name = Find;
+			sourceTree = "<group>";
+		};
+		F2E54C1614312A6100CA078C /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				F2E54C1714312A8F00CA078C /* FindViewController.h */,
+				F2E54C1814312A8F00CA078C /* FindViewController.m */,
+			);
+			name = Find;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,6 +980,11 @@
 				F2972923142A8B1D00A77B1B /* Localizable.strings in Resources */,
 				F2972929142A8B7A00A77B1B /* InfoPlist.strings in Resources */,
 				F297292A142A8B7A00A77B1B /* Localizable.strings in Resources */,
+				F2AB83BD142FBC8C00888089 /* loading.png in Resources */,
+				F2AB83C1142FBEB000888089 /* bezahlen.png in Resources */,
+				F2AB83C2142FBEB000888089 /* finden.png in Resources */,
+				F2AB83C3142FBEB000888089 /* haendler.png in Resources */,
+				F2E54C1B14312A8F00CA078C /* FindViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1082,7 @@
 				F2562FCE141D55420089593D /* MapsViewController.m in Sources */,
 				F2562FD4141D5BDE0089593D /* AddressAnnotation.m in Sources */,
 				F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */,
+				F2E54C1A14312A8F00CA078C /* FindViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
