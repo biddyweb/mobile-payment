@@ -89,13 +89,8 @@
     [widController release];
 }
 
-- (IBAction)bookPressed:(id)sender {
-    NSString *qrCode = @"http://localhost:3000/customers/1/transactions/27/pay";
-    [self showBooking:qrCode];
-}
-
 - (IBAction)transactionsPressed:(id)sender {
-    TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
+    TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil table:[TransactionsViewController getTransactions]];
     [self.navigationController pushViewController:transactionsController animated:YES];
 }
 

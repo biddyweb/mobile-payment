@@ -174,9 +174,10 @@
 
 -(void)showNotification {
     if([apnContentType isEqualToString:@"customer"]) {
-        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
+        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
         
             TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil transactionIds:apnContentInfo hardwareId:apnHardwareId];
+        
             [transactionsController dismissModalViewControllerAnimated:NO];
             
             UINavigationController *navcon = (UINavigationController*)self.tabBarController.selectedViewController;

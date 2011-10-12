@@ -11,8 +11,6 @@
 		F20A83A5141CB0D400757691 /* appsymbol_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A4141CB0D400757691 /* appsymbol_r.png */; };
 		F20A83A9141CBA8000757691 /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20A83A7141CBA8000757691 /* CatalogViewController.m */; };
 		F20A83AA141CBA8000757691 /* CatalogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A8141CBA8000757691 /* CatalogViewController.xib */; };
-		F2562FC9141D238F0089593D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FC7141D238F0089593D /* LoadingViewController.m */; };
-		F2562FCA141D238F0089593D /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FC8141D238F0089593D /* LoadingViewController.xib */; };
 		F2562FCE141D55420089593D /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FCC141D55420089593D /* MapsViewController.m */; };
 		F2562FCF141D55420089593D /* MapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FCD141D55420089593D /* MapsViewController.xib */; };
 		F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2562FD0141D587C0089593D /* MapKit.framework */; };
@@ -37,7 +35,6 @@
 		F257B88F1413B29B00AF8B3D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8841413B29B00AF8B3D /* WebViewController.m */; };
 		F257B8901413B29B00AF8B3D /* GenerateQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8861413B29B00AF8B3D /* GenerateQRViewController.m */; };
 		F257B8911413B29B00AF8B3D /* PropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8881413B29B00AF8B3D /* PropertiesViewController.m */; };
-		F257B8921413B29B00AF8B3D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B88A1413B29B00AF8B3D /* TestViewController.m */; };
 		F257B8931413B29B00AF8B3D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B88C1413B29B00AF8B3D /* QRCodeViewController.m */; };
 		F257B8AA1413B2B200AF8B3D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8951413B2B200AF8B3D /* Reachability.m */; };
 		F257B8AB1413B2B200AF8B3D /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B8971413B2B200AF8B3D /* ASIAuthenticationDialog.m */; };
@@ -65,16 +62,12 @@
 		F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */; };
 		F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8EA1413B37000AF8B3D /* BookViewController.xib */; };
 		F257B8F11413B37000AF8B3D /* OrderResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8EB1413B37000AF8B3D /* OrderResultsViewController.xib */; };
-		F257B8F21413B37000AF8B3D /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8EC1413B37000AF8B3D /* TestViewController.xib */; };
 		F257B8F31413B37000AF8B3D /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F257B8ED1413B37000AF8B3D /* QRCodeViewController.xib */; };
 		F257B8F51413B3AC00AF8B3D /* beep-beep.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F257B8F41413B3AC00AF8B3D /* beep-beep.aiff */; };
 		F257B9011413B4B100AF8B3D /* libZXingWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B8FE1413B44100AF8B3D /* libZXingWidget.a */; };
-		F257B9091413B4B200AF8B3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9021413B4B100AF8B3D /* AddressBook.framework */; };
-		F257B90A1413B4B200AF8B3D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9031413B4B100AF8B3D /* AddressBookUI.framework */; };
 		F257B90B1413B4B200AF8B3D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9041413B4B100AF8B3D /* AudioToolbox.framework */; };
 		F257B90C1413B4B200AF8B3D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9051413B4B100AF8B3D /* AVFoundation.framework */; };
 		F257B90D1413B4B200AF8B3D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9061413B4B100AF8B3D /* CoreMedia.framework */; };
-		F257B90E1413B4B200AF8B3D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9071413B4B200AF8B3D /* CoreVideo.framework */; };
 		F257B90F1413B4B200AF8B3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9081413B4B200AF8B3D /* libiconv.dylib */; };
 		F257B9131413B5F100AF8B3D /* ECNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B9121413B5F100AF8B3D /* ECNetworkHandler.m */; };
 		F257B9421413B60E00AF8B3D /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = F257B9161413B60E00AF8B3D /* Address.m */; };
@@ -133,6 +126,7 @@
 		F2AB83C2142FBEB000888089 /* finden.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83BF142FBEB000888089 /* finden.png */; };
 		F2AB83C3142FBEB000888089 /* haendler.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB83C0142FBEB000888089 /* haendler.png */; };
 		F2C7BD271421508000A2743D /* libPayPalEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C7BD261421508000A2743D /* libPayPalEC.a */; };
+		F2D1F765143E34BF00300B19 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D1F764143E34BF00300B19 /* CoreVideo.framework */; };
 		F2E54C1A14312A8F00CA078C /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E54C1814312A8F00CA078C /* FindViewController.m */; };
 		F2E54C1B14312A8F00CA078C /* FindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E54C1914312A8F00CA078C /* FindViewController.xib */; };
 		F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E54C1C14312CCF00CA078C /* CoreLocation.framework */; };
@@ -171,9 +165,6 @@
 		F20A83A6141CBA8000757691 /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
 		F20A83A7141CBA8000757691 /* CatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogViewController.m; sourceTree = "<group>"; };
 		F20A83A8141CBA8000757691 /* CatalogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogViewController.xib; sourceTree = "<group>"; };
-		F2562FC6141D238F0089593D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
-		F2562FC7141D238F0089593D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
-		F2562FC8141D238F0089593D /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		F2562FCB141D55420089593D /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		F2562FCC141D55420089593D /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		F2562FCD141D55420089593D /* MapsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapsViewController.xib; sourceTree = "<group>"; };
@@ -209,8 +200,6 @@
 		F257B8861413B29B00AF8B3D /* GenerateQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateQRViewController.m; sourceTree = "<group>"; };
 		F257B8871413B29B00AF8B3D /* PropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertiesViewController.h; sourceTree = "<group>"; };
 		F257B8881413B29B00AF8B3D /* PropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertiesViewController.m; sourceTree = "<group>"; };
-		F257B8891413B29B00AF8B3D /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		F257B88A1413B29B00AF8B3D /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F257B88B1413B29B00AF8B3D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		F257B88C1413B29B00AF8B3D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
 		F257B8941413B2B200AF8B3D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -267,7 +256,6 @@
 		F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenerateQRViewController.xib; sourceTree = "<group>"; };
 		F257B8EA1413B37000AF8B3D /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
 		F257B8EB1413B37000AF8B3D /* OrderResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderResultsViewController.xib; sourceTree = "<group>"; };
-		F257B8EC1413B37000AF8B3D /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		F257B8ED1413B37000AF8B3D /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
 		F257B8F41413B3AC00AF8B3D /* beep-beep.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "beep-beep.aiff"; sourceTree = "<group>"; };
 		F257B8F61413B44100AF8B3D /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = ../Libraries/zxing/iphone/ZXingWidget/ZXingWidget.xcodeproj; sourceTree = "<group>"; };
@@ -363,6 +351,8 @@
 		F2AB83BF142FBEB000888089 /* finden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finden.png; path = images/finden.png; sourceTree = "<group>"; };
 		F2AB83C0142FBEB000888089 /* haendler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haendler.png; path = images/haendler.png; sourceTree = "<group>"; };
 		F2C7BD261421508000A2743D /* libPayPalEC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalEC.a; sourceTree = "<group>"; };
+		F2D1F763143E343300300B19 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F2D1F764143E34BF00300B19 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		F2E54C1714312A8F00CA078C /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		F2E54C1814312A8F00CA078C /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		F2E54C1914312A8F00CA078C /* FindViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindViewController.xib; sourceTree = "<group>"; };
@@ -378,6 +368,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D1F765143E34BF00300B19 /* CoreVideo.framework in Frameworks */,
+				F257B90D1413B4B200AF8B3D /* CoreMedia.framework in Frameworks */,
 				F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */,
 				F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */,
 				F257B9601413B6E500AF8B3D /* libz.1.2.3.dylib in Frameworks */,
@@ -385,12 +377,8 @@
 				F257B95D1413B6CF00AF8B3D /* MobileCoreServices.framework in Frameworks */,
 				F257B95B1413B6C900AF8B3D /* SystemConfiguration.framework in Frameworks */,
 				F257B9591413B6BA00AF8B3D /* CFNetwork.framework in Frameworks */,
-				F257B9091413B4B200AF8B3D /* AddressBook.framework in Frameworks */,
-				F257B90A1413B4B200AF8B3D /* AddressBookUI.framework in Frameworks */,
 				F257B90B1413B4B200AF8B3D /* AudioToolbox.framework in Frameworks */,
 				F257B90C1413B4B200AF8B3D /* AVFoundation.framework in Frameworks */,
-				F257B90D1413B4B200AF8B3D /* CoreMedia.framework in Frameworks */,
-				F257B90E1413B4B200AF8B3D /* CoreVideo.framework in Frameworks */,
 				F257B90F1413B4B200AF8B3D /* libiconv.dylib in Frameworks */,
 				F257B9011413B4B100AF8B3D /* libZXingWidget.a in Frameworks */,
 				F257B8341413B19600AF8B3D /* UIKit.framework in Frameworks */,
@@ -437,6 +425,26 @@
 			name = Booking;
 			sourceTree = "<group>";
 		};
+		F218A11D1439EAF9009D3AD8 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				F257B8481413B19600AF8B3D /* CustomerViewController.h */,
+				F257B8491413B19600AF8B3D /* CustomerViewController.mm */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
+		F218A11E1439EB2C009D3AD8 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				F2E7244514240F1600409D10 /* SellerViewController.h */,
+				F2E7244614240F1600409D10 /* SellerViewController.mm */,
+				F257B8871413B29B00AF8B3D /* PropertiesViewController.h */,
+				F257B8881413B29B00AF8B3D /* PropertiesViewController.m */,
+			);
+			name = Seller;
+			sourceTree = "<group>";
+		};
 		F2562FD5141D63090089593D /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +480,8 @@
 		F257B8321413B19600AF8B3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2D1F764143E34BF00300B19 /* CoreVideo.framework */,
+				F2D1F763143E343300300B19 /* CoreMedia.framework */,
 				F2E54C1C14312CCF00CA078C /* CoreLocation.framework */,
 				F2562FD0141D587C0089593D /* MapKit.framework */,
 				F257B95F1413B6E500AF8B3D /* libz.1.2.3.dylib */,
@@ -567,21 +577,13 @@
 				F20A83A1141B696B00757691 /* Booking */,
 				F20A83A0141B694D00757691 /* QR-Code */,
 				F25DA0D514193B7900B48F2B /* transactions */,
+				F218A11D1439EAF9009D3AD8 /* Customer */,
 				F2E54C1614312A6100CA078C /* Find */,
-				F257B8481413B19600AF8B3D /* CustomerViewController.h */,
-				F257B8491413B19600AF8B3D /* CustomerViewController.mm */,
-				F2E7244514240F1600409D10 /* SellerViewController.h */,
-				F2E7244614240F1600409D10 /* SellerViewController.mm */,
-				F257B8871413B29B00AF8B3D /* PropertiesViewController.h */,
-				F257B8881413B29B00AF8B3D /* PropertiesViewController.m */,
-				F257B8891413B29B00AF8B3D /* TestViewController.h */,
-				F257B88A1413B29B00AF8B3D /* TestViewController.m */,
+				F218A11E1439EB2C009D3AD8 /* Seller */,
 				F25DA0DD14195BE000B48F2B /* CostomerWebsiteViewController.h */,
 				F25DA0DE14195BE000B48F2B /* CostomerWebsiteViewController.m */,
 				F20A83A6141CBA8000757691 /* CatalogViewController.h */,
 				F20A83A7141CBA8000757691 /* CatalogViewController.m */,
-				F2562FC6141D238F0089593D /* LoadingViewController.h */,
-				F2562FC7141D238F0089593D /* LoadingViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -653,9 +655,7 @@
 				F2839ADB1423FCF600EF6CE7 /* Seller */,
 				F2E54C1514312A3C00CA078C /* Find */,
 				F20A83A8141CBA8000757691 /* CatalogViewController.xib */,
-				F2562FC8141D238F0089593D /* LoadingViewController.xib */,
 				F2562FCD141D55420089593D /* MapsViewController.xib */,
-				F257B8EC1413B37000AF8B3D /* TestViewController.xib */,
 				F25DA0DF14195BE100B48F2B /* CostomerWebsiteViewController.xib */,
 				F25DA0D614193CB800B48F2B /* TransactionsViewController.xib */,
 				F25DA0DA1419517F00B48F2B /* TransactionDetailViewController.xib */,
@@ -948,7 +948,6 @@
 				F257B8EF1413B37000AF8B3D /* GenerateQRViewController.xib in Resources */,
 				F257B8F01413B37000AF8B3D /* BookViewController.xib in Resources */,
 				F257B8F11413B37000AF8B3D /* OrderResultsViewController.xib in Resources */,
-				F257B8F21413B37000AF8B3D /* TestViewController.xib in Resources */,
 				F257B8F31413B37000AF8B3D /* QRCodeViewController.xib in Resources */,
 				F257B8F51413B3AC00AF8B3D /* beep-beep.aiff in Resources */,
 				F257B9761413EBC200AF8B3D /* loader1.png in Resources */,
@@ -969,7 +968,6 @@
 				F20A83A3141CB08F00757691 /* appsymbol.png in Resources */,
 				F20A83A5141CB0D400757691 /* appsymbol_r.png in Resources */,
 				F20A83AA141CBA8000757691 /* CatalogViewController.xib in Resources */,
-				F2562FCA141D238F0089593D /* LoadingViewController.xib in Resources */,
 				F2562FCF141D55420089593D /* MapsViewController.xib in Resources */,
 				F2562FD7141D63120089593D /* MainWindow-iPad.xib in Resources */,
 				F2839AE21424034500EF6CE7 /* TabWindow-iPad.xib in Resources */,
@@ -1027,7 +1025,6 @@
 				F257B88F1413B29B00AF8B3D /* WebViewController.m in Sources */,
 				F257B8901413B29B00AF8B3D /* GenerateQRViewController.m in Sources */,
 				F257B8911413B29B00AF8B3D /* PropertiesViewController.m in Sources */,
-				F257B8921413B29B00AF8B3D /* TestViewController.m in Sources */,
 				F257B8931413B29B00AF8B3D /* QRCodeViewController.m in Sources */,
 				F257B8AA1413B2B200AF8B3D /* Reachability.m in Sources */,
 				F257B8AB1413B2B200AF8B3D /* ASIAuthenticationDialog.m in Sources */,
@@ -1078,7 +1075,6 @@
 				F25DA0DB1419517F00B48F2B /* TransactionDetailViewController.m in Sources */,
 				F25DA0E014195BE100B48F2B /* CostomerWebsiteViewController.m in Sources */,
 				F20A83A9141CBA8000757691 /* CatalogViewController.m in Sources */,
-				F2562FC9141D238F0089593D /* LoadingViewController.m in Sources */,
 				F2562FCE141D55420089593D /* MapsViewController.m in Sources */,
 				F2562FD4141D5BDE0089593D /* AddressAnnotation.m in Sources */,
 				F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */,

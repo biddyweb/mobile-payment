@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) IBOutlet GenerateQRViewController *generateQrController;
 
+-(NSMutableArray *)getTransactions;
 - (IBAction)transactionsPressed:(id)sender;
 - (IBAction)generatePressed:(id)sender;
 - (IBAction)myDataPressed:(id)sender;

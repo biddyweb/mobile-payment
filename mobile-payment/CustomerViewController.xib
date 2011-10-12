@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBUIButton</string>
 			<string>IBUIViewController</string>
+			<string>IBUIButton</string>
 			<string>IBUIView</string>
 			<string>IBProxyObject</string>
 		</object>
@@ -43,13 +43,18 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIButton" id="100846341">
+					<object class="IBUIButton" id="503367639">
 						<reference key="NSNextResponder" ref="1073060654"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{96, 296}, {127, 37}}</string>
+						<string key="NSFrame">{{96, 20}, {127, 127}}</string>
 						<reference key="NSSuperview" ref="1073060654"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="442925327"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
+						<object class="NSColor" key="IBUIBackgroundColor" id="228438660">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -59,43 +64,16 @@
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Book</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="228438660">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
-						<reference key="IBUINormalTitleColor" ref="228438660"/>
-						<object class="NSColor" key="IBUINormalTitleShadowColor" id="509939577">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC41AA</bytes>
-						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="676290608">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">button_bg.png</string>
-						</object>
-					</object>
-					<object class="IBUIButton" id="503367639">
-						<reference key="NSNextResponder" ref="1073060654"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{96, 20}, {127, 127}}</string>
-						<reference key="NSSuperview" ref="1073060654"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="442925327"/>
-						<string key="NSReuseIdentifierKey">_NS:222</string>
-						<reference key="IBUIBackgroundColor" ref="228438660"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="1063812121"/>
 						<string key="IBUINormalTitle">Book</string>
 						<reference key="IBUIHighlightedTitleColor" ref="228438660"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="509939577"/>
+						<object class="NSColor" key="IBUINormalTitleShadowColor" id="509939577">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">appsymbol_r.png</string>
@@ -107,7 +85,7 @@
 						<string key="NSFrame">{{97, 165}, {126, 37}}</string>
 						<reference key="NSSuperview" ref="1073060654"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="100846341"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<reference key="IBUIBackgroundColor" ref="228438660"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -120,7 +98,10 @@
 						<reference key="IBUIHighlightedTitleColor" ref="228438660"/>
 						<reference key="IBUINormalTitleColor" ref="228438660"/>
 						<reference key="IBUINormalTitleShadowColor" ref="509939577"/>
-						<reference key="IBUINormalBackgroundImage" ref="676290608"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">button_bg.png</string>
+						</object>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 64}, {320, 367}}</string>
@@ -195,15 +176,6 @@
 					</object>
 					<int key="connectionID">29</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">bookPressed:</string>
-						<reference key="source" ref="100846341"/>
-						<reference key="destination" ref="841351856"/>
-						<int key="IBEventType">1</int>
-					</object>
-					<int key="connectionID">30</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -232,14 +204,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="442925327"/>
 							<reference ref="503367639"/>
-							<reference ref="100846341"/>
 						</object>
 						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="100846341"/>
-						<reference key="parent" ref="1073060654"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
@@ -274,7 +240,6 @@
 					<string>25.IBPluginDependency</string>
 					<string>25.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>6.IBPluginDependency</string>
-					<string>8.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -288,7 +253,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="0.0"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>

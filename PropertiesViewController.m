@@ -22,15 +22,6 @@
     return self;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        [self prepare];
-    }
-    return self;
-}
-
 -(void)prepare {
     inputFields = [[NSMutableDictionary alloc] init];
     inputFieldsAsArray = [[NSMutableArray alloc] init];

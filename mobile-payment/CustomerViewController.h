@@ -31,7 +31,6 @@
 - (void)showBooking:(NSString *)qrCode;
 - (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result;
 - (IBAction)scanPressed:(id)sender;
-- (IBAction)bookPressed:(id)sender;
 - (IBAction)transactionsPressed:(id)sender;
 
 @end
