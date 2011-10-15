@@ -95,7 +95,6 @@
 		F257B9591413B6BA00AF8B3D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B9581413B6BA00AF8B3D /* CFNetwork.framework */; };
 		F257B95B1413B6C900AF8B3D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B95A1413B6C900AF8B3D /* SystemConfiguration.framework */; };
 		F257B95D1413B6CF00AF8B3D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B95C1413B6CF00AF8B3D /* MobileCoreServices.framework */; };
-		F257B9601413B6E500AF8B3D /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F257B95F1413B6E500AF8B3D /* libz.1.2.3.dylib */; };
 		F257B9761413EBC200AF8B3D /* loader1.png in Resources */ = {isa = PBXBuildFile; fileRef = F257B96A1413EBC200AF8B3D /* loader1.png */; };
 		F257B9771413EBC200AF8B3D /* loader2.png in Resources */ = {isa = PBXBuildFile; fileRef = F257B96B1413EBC200AF8B3D /* loader2.png */; };
 		F257B9781413EBC200AF8B3D /* loader3.png in Resources */ = {isa = PBXBuildFile; fileRef = F257B96C1413EBC200AF8B3D /* loader3.png */; };
@@ -132,6 +131,7 @@
 		F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E54C1C14312CCF00CA078C /* CoreLocation.framework */; };
 		F2E7244414240F0200409D10 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E7244314240F0200409D10 /* SellerViewController.xib */; };
 		F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2E7244614240F1600409D10 /* SellerViewController.mm */; };
+		F2F8207A14463ED7008C08B7 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F8207914463ED7008C08B7 /* libz.1.2.5.dylib */; };
 		F2FB10EF1427BC7300DD6DBD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FB10EE1427BC7300DD6DBD /* button_bg.png */; };
 /* End PBXBuildFile section */
 
@@ -317,7 +317,6 @@
 		F257B95A1413B6C900AF8B3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F257B95C1413B6CF00AF8B3D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F257B95E1413B6D800AF8B3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F257B95F1413B6E500AF8B3D /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		F257B96A1413EBC200AF8B3D /* loader1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader1.png; sourceTree = "<group>"; };
 		F257B96B1413EBC200AF8B3D /* loader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader2.png; sourceTree = "<group>"; };
 		F257B96C1413EBC200AF8B3D /* loader3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader3.png; sourceTree = "<group>"; };
@@ -360,6 +359,7 @@
 		F2E7244314240F0200409D10 /* SellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SellerViewController.xib; path = "mobile-payment/SellerViewController.xib"; sourceTree = "<group>"; };
 		F2E7244514240F1600409D10 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SellerViewController.h; path = "mobile-payment/SellerViewController.h"; sourceTree = "<group>"; };
 		F2E7244614240F1600409D10 /* SellerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SellerViewController.mm; path = "mobile-payment/SellerViewController.mm"; sourceTree = "<group>"; };
+		F2F8207914463ED7008C08B7 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		F2FB10EE1427BC7300DD6DBD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_bg.png; path = images/button_bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -368,11 +368,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F8207A14463ED7008C08B7 /* libz.1.2.5.dylib in Frameworks */,
 				F2D1F765143E34BF00300B19 /* CoreVideo.framework in Frameworks */,
 				F257B90D1413B4B200AF8B3D /* CoreMedia.framework in Frameworks */,
 				F2E54C1D14312CCF00CA078C /* CoreLocation.framework in Frameworks */,
 				F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */,
-				F257B9601413B6E500AF8B3D /* libz.1.2.3.dylib in Frameworks */,
 				F257B8381413B19600AF8B3D /* CoreGraphics.framework in Frameworks */,
 				F257B95D1413B6CF00AF8B3D /* MobileCoreServices.framework in Frameworks */,
 				F257B95B1413B6C900AF8B3D /* SystemConfiguration.framework in Frameworks */,
@@ -484,7 +484,7 @@
 				F2D1F763143E343300300B19 /* CoreMedia.framework */,
 				F2E54C1C14312CCF00CA078C /* CoreLocation.framework */,
 				F2562FD0141D587C0089593D /* MapKit.framework */,
-				F257B95F1413B6E500AF8B3D /* libz.1.2.3.dylib */,
+				F2F8207914463ED7008C08B7 /* libz.1.2.5.dylib */,
 				F257B95E1413B6D800AF8B3D /* CoreGraphics.framework */,
 				F257B95C1413B6CF00AF8B3D /* MobileCoreServices.framework */,
 				F257B95A1413B6C900AF8B3D /* SystemConfiguration.framework */,
@@ -901,6 +901,9 @@
 /* Begin PBXProject section */
 		F257B8261413B19600AF8B3D /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = F257B8291413B19600AF8B3D /* Build configuration list for PBXProject "mobile-payment" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -1187,9 +1190,10 @@
 		F257B8681413B19700AF8B3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Torben Toepper (R5294C52TV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../Libraries/zxing/cpp/core/src/,
 					"../Libraries/zxing/iphone/ZXingWidget/Classes/**",
@@ -1201,7 +1205,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C7E925D-3CDC-4CD4-9FB3-4217246AD49C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1211,8 +1215,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					../Libraries/zxing/cpp/core/src/,
 					"../Libraries/zxing/iphone/ZXingWidget/Classes/**",
@@ -1240,6 +1246,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "mobile-paymentTests/mobile-paymentTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1257,6 +1264,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-payment/mobile-payment-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "mobile-paymentTests/mobile-paymentTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
