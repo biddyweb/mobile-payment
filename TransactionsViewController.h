@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Customer.h"
 
-@interface TransactionsViewController : UITableViewController {
+@interface TransactionsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *table;
 }
 
 @property (nonatomic, retain) NSMutableArray *table;
 
-+ (NSMutableArray *)getTransactions;
++ (NSMutableArray *)getTransactions:(Customer *)customer;
++ (NSMutableArray *)getOpenTransactions:(Customer *)customer;
++(NSMutableArray *)_getTransactions:(NSURL *)url;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil table:(NSMutableArray *)_table;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transactionIds:(NSArray *)transactionIds hardwareId:(NSString *)hardwareId;
 

@@ -35,5 +35,6 @@
 #define RELEASE_MODE
 #define XLog(...)
 #define MAIN_HOSTNAME @"http://rails1.server1686.railsvserver.de/"
+//#define MAIN_HOSTNAME @"http://192.168.9.109:3000/"
 
 #endif

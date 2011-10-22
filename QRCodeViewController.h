@@ -22,6 +22,8 @@
 @property (nonatomic, retain) NSString *currency;
 
 - (id)initWithNibNameAndAmount:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil amount:(NSString *)_amount currency:(NSString *)_currency;
+- (void)generateQR;
+- (void)loadQR:(NSString *)transaction_id;
 - (void)requestFinished:(ASIHTTPRequest *)request;
 - (void)requestFailed:(ASIHTTPRequest *)request;
 - (IBAction)cancelPressed:(id)sender;

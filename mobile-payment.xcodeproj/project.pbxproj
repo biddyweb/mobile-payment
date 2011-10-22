@@ -13,6 +13,8 @@
 		F20A83A5141CB0D400757691 /* appsymbol_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A4141CB0D400757691 /* appsymbol_r.png */; };
 		F20A83A9141CBA8000757691 /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20A83A7141CBA8000757691 /* CatalogViewController.m */; };
 		F20A83AA141CBA8000757691 /* CatalogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A8141CBA8000757691 /* CatalogViewController.xib */; };
+		F219509C1452BEA100104278 /* SellerTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F219509A1452BEA100104278 /* SellerTransactionsViewController.m */; };
+		F219509D1452BEA100104278 /* SellerTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F219509B1452BEA100104278 /* SellerTransactionsViewController.xib */; };
 		F2562FCE141D55420089593D /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2562FCC141D55420089593D /* MapsViewController.m */; };
 		F2562FCF141D55420089593D /* MapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2562FCD141D55420089593D /* MapsViewController.xib */; };
 		F2562FD1141D587C0089593D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2562FD0141D587C0089593D /* MapKit.framework */; };
@@ -171,6 +173,9 @@
 		F20A83A6141CBA8000757691 /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
 		F20A83A7141CBA8000757691 /* CatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogViewController.m; sourceTree = "<group>"; };
 		F20A83A8141CBA8000757691 /* CatalogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogViewController.xib; sourceTree = "<group>"; };
+		F21950991452BEA100104278 /* SellerTransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellerTransactionsViewController.h; sourceTree = "<group>"; };
+		F219509A1452BEA100104278 /* SellerTransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellerTransactionsViewController.m; sourceTree = "<group>"; };
+		F219509B1452BEA100104278 /* SellerTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellerTransactionsViewController.xib; sourceTree = "<group>"; };
 		F2562FCB141D55420089593D /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		F2562FCC141D55420089593D /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		F2562FCD141D55420089593D /* MapsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapsViewController.xib; sourceTree = "<group>"; };
@@ -458,6 +463,8 @@
 				F2E7244614240F1600409D10 /* SellerViewController.mm */,
 				F257B8871413B29B00AF8B3D /* PropertiesViewController.h */,
 				F257B8881413B29B00AF8B3D /* PropertiesViewController.m */,
+				F21950991452BEA100104278 /* SellerTransactionsViewController.h */,
+				F219509A1452BEA100104278 /* SellerTransactionsViewController.m */,
 			);
 			name = Seller;
 			sourceTree = "<group>";
@@ -824,6 +831,7 @@
 			isa = PBXGroup;
 			children = (
 				F2E7244314240F0200409D10 /* SellerViewController.xib */,
+				F219509B1452BEA100104278 /* SellerTransactionsViewController.xib */,
 				F257B8E91413B37000AF8B3D /* GenerateQRViewController.xib */,
 				F257B8E81413B37000AF8B3D /* PropertiesViewController.xib */,
 				F257B8ED1413B37000AF8B3D /* QRCodeViewController.xib */,
@@ -1004,6 +1012,7 @@
 				F2AB83C2142FBEB000888089 /* finden.png in Resources */,
 				F2AB83C3142FBEB000888089 /* haendler.png in Resources */,
 				F2E54C1B14312A8F00CA078C /* FindViewController.xib in Resources */,
+				F219509D1452BEA100104278 /* SellerTransactionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,6 +1111,7 @@
 				F2E54C1A14312A8F00CA078C /* FindViewController.m in Sources */,
 				F204AB3A144B6E7800A7FAD6 /* Customer.m in Sources */,
 				F204AB3D144B6EF100A7FAD6 /* Transaction.m in Sources */,
+				F219509C1452BEA100104278 /* SellerTransactionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

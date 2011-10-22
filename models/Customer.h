@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Customer : NSObject {
+    NSNumber *customer_id;
     NSString *name;
     NSString *website_url;
     NSString *street;
@@ -16,6 +17,7 @@
     NSString *location;
 }
 
+@property(nonatomic, retain) NSNumber *customer_id;
 @property(nonatomic, retain) NSString *name;
 @property(nonatomic, retain) NSString *website_url;
 @property(nonatomic, retain) NSString *street;
@@ -23,5 +25,6 @@
 @property(nonatomic, retain) NSString *location;
 
 -(id)initWithDictinoary:dict;
++(id)find:(NSNumber *)customer_id;
 
 @end

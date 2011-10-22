@@ -10,13 +10,15 @@
 
 @implementation Transaction
 
-@synthesize amount, paid_at, transaction_id, currency_key, customer;
+@synthesize _id, amount, paid_at, created_at, transaction_id, currency_key, customer;
 
 -(id)initWithDictinoary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
+        self._id = [dict objectForKey:@"id"];
         self.amount = [dict objectForKey:@"amount"];
         self.paid_at = [Transaction dateFromInternetDateTimeString:[[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"paid_at"]]];
+        self.created_at = [Transaction dateFromInternetDateTimeString:[[NSString alloc] initWithFormat:@"%@", [dict objectForKey:@"created_at"]]];
         self.transaction_id = [dict objectForKey:@"transaction_id"];
         self.currency_key = [dict objectForKey:@"currency_key"];
         

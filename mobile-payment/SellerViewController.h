@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GenerateQRViewController.h"
-#import "TransactionsViewController.h"
+#import "SellerTransactionsViewController.h"
 
 
 @interface SellerViewController : UIViewController {

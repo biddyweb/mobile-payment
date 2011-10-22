@@ -38,7 +38,7 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@transactions.json?hardware_id=%@&ids=%@", [Config webUrlTEMP], hardwareId, [transactionIds componentsJoinedByString:@","]]];
 }
 
-+(NSURL *)transactionsUrl:(NSString *)customerId {
++(NSURL *)transactionsUrl:(NSNumber *)customerId {
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], [NSString stringWithFormat:@"customers/%@/transactions.json", customerId]]];
 }
 
@@ -52,11 +52,20 @@
     return [NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], [NSString stringWithFormat:@"customers/%@/transactions/%@%@", customerId, transactionId, json]];
 }
 
++(NSURL *)openTransactionsUrl:(NSNumber *)customer_id {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@customers/%@/transactions.json?state=open", [Config webUrlTEMP], customer_id]];
+}
+
 +(NSURL *)transactionConfirmationUrl:(NSString *)customerId transaction:(NSString *)transactionId asJSON:(BOOL)asJSON {
     NSString *json = asJSON ? @".json" : @".png";
     
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], [NSString stringWithFormat:@"customers/%@/transactions/%@/confirm%@", customerId, transactionId, json]]];
 }
+
++(NSURL *)customerUrl:(NSNumber *)customer_id {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], [NSString stringWithFormat:@"customers/%@.json", customer_id]]];
+}
+
 
 +(NSURL *)newCustomerUrl {
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [Config webUrlTEMP], @"customers.json"]];

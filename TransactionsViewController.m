@@ -11,7 +11,6 @@
 #import "Config.h"
 #import "SBJsonParser.h"
 #import "TransactionDetailViewController.h"
-#import "Customer.h"
 #import "Transaction.h"
 
 @implementation TransactionsViewController
@@ -29,7 +28,6 @@
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transactionIds:(NSArray *)transactionIds hardwareId:(NSString *)hardwareId {
-    NSLog(@"aha...");
     
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -175,12 +173,9 @@
  */
 
 - (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
-    NSLog(@"%@", [table objectAtIndex:section]);
     Transaction *transaction = [table objectAtIndex:section];
-    NSLog(@"%@", transaction.currency_key);
-    NSDate *date = transaction.paid_at;
-    NSLog(@"%@", date);
-    
+    NSDate *date = transaction.paid_at == NULL ? transaction.created_at : transaction.paid_at;
+
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat: @"dd.MM.yyyy HH:mm:ss"];
     
@@ -192,11 +187,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TransactionDetailViewController *detailViewController = [[TransactionDetailViewController alloc] initWithNibName:@"TransactionDetailViewController" bundle:nil];
     
+    NSLog(@"%@", [table objectAtIndex:[indexPath section]]);
     detailViewController.transaction = [table objectAtIndex:[indexPath section]];
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
@@ -222,11 +220,22 @@
 }
 
 +(NSMutableArray *)getTransactions {
-    NSMutableArray *table;
     UIDevice *myDevice = [UIDevice currentDevice];
     NSString *deviceUDID = [myDevice uniqueIdentifier];
-    NSURL *url = [Config transactionsUrlWith:deviceUDID];
-    
+    return [TransactionsViewController _getTransactions:[Config transactionsUrlWith:deviceUDID]];
+}
+
++(NSMutableArray *)getTransactions:(Customer *)customer {
+    return [TransactionsViewController _getTransactions:[Config transactionsUrl:customer.customer_id]];
+}
+
++(NSMutableArray *)getOpenTransactions:(Customer *)customer {
+    return [TransactionsViewController _getTransactions:[Config openTransactionsUrl:customer.customer_id]];
+}
+
++(NSMutableArray *)_getTransactions:(NSURL *)url {
+    NSMutableArray *table;
+
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
@@ -249,7 +258,7 @@
             
             for (int i=0,n=[values count]; i<n; i++) {
                 Transaction *transaction = [[Transaction alloc] initWithDictinoary:[values objectAtIndex:i]];
-
+                
                 [table addObject:transaction];
             }
             

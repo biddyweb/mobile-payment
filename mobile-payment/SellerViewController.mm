@@ -86,8 +86,9 @@
 }
 
 - (IBAction)transactionsPressed:(id)sender {
-    TransactionsViewController *transactionsController = [[TransactionsViewController alloc] initWithNibName:@"TransactionsViewController" bundle:nil];
-    [self.navigationController pushViewController:transactionsController animated:YES];
+    NSMutableArray *table = [SellerTransactionsViewController getTransactions];
+    SellerTransactionsViewController *sellerTransactionsController = [[SellerTransactionsViewController alloc] initWithNibName:@"SellerTransactionsViewController" bundle:nil table:table];
+    [self.navigationController pushViewController:sellerTransactionsController animated:YES];
 }
 
 - (IBAction)generatePressed:(id)sender {

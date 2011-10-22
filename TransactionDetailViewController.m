@@ -10,6 +10,7 @@
 #import "TransactionsViewController.h"
 #import "CostomerWebsiteViewController.h"
 #import "MapsViewController.h"
+#import "QRCodeViewController.h"
 
 @implementation TransactionDetailViewController
 
@@ -88,6 +89,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (transaction.paid_at == NULL) return 5;
+
     return 4;
 }
 
@@ -121,6 +124,11 @@
         cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if([indexPath row] == 4) {
+        cell.textLabel.text = @"QR-Code:";
+        cell.detailTextLabel.text = [self textForRowAtIndexPath:indexPath];
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     // Configure the cell...
@@ -147,10 +155,14 @@
                     return [NSString stringWithFormat:@"%@ %@", transaction.amount, transaction.currency_key];
                 
                 case 2:
+                    if(transaction.transaction_id == nil || (id)transaction.transaction_id == [NSNull null]) return @"---";
                     return transaction.transaction_id;
                 
                 case 3:
                     return [NSString stringWithFormat:@"%@\n%@ %@", transaction.customer.street, transaction.customer.zip, transaction.customer.location];
+                
+                case 4:
+                    return NSLocalizedString(@"TRANSACTION.QR_CODE", @"Show QR- Code");
             }
     }
     
@@ -158,7 +170,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
-    NSDate *date = transaction.paid_at;
+    NSDate *date = transaction.paid_at == NULL ? transaction.created_at : transaction.paid_at;
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat: @"dd.MM.yyyy HH:mm:ss"];
@@ -220,7 +232,14 @@
         mapsViewController.customer = transaction.customer;
         [self.navigationController pushViewController:mapsViewController animated:YES];
         [mapsViewController release];
+    } else if([indexPath row] == 4) {
+        QRCodeViewController *widController = [[QRCodeViewController alloc] initWithNibNameAndAmount:@"QRCodeViewController" bundle:nil amount:@"0" currency:@"-"];
+        [self presentModalViewController:widController animated:YES];
+        NSLog(@"TransactionID: %@", transaction._id);
+        [widController loadQR:transaction._id];
     }
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

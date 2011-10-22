@@ -64,6 +64,7 @@
 
     QRCodeViewController *widController = [[QRCodeViewController alloc] initWithNibNameAndAmount:@"QRCodeViewController" bundle:nil amount:amount.text currency:[props get:@"currency"]];
     [self presentModalViewController:widController animated:YES];
+    [widController generateQR];
     //[widController loadQR];
     [props release];
 }

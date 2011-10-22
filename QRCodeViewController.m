@@ -55,7 +55,23 @@
     qrImageView.animationImages = [[NSArray alloc] initWithObjects:loader1, loader2, loader3, loader4, loader5, loader6, loader7, loader8, loader9, loader10, loader11, loader12, nil];
     qrImageView.animationRepeatCount = 50;
     [qrImageView startAnimating];
+}
+
+-(void)loadQR:(NSString *)transaction_id {
+    Properties *props = [[[Properties alloc] init] autorelease];
+    NSString *customerId = [props get:@"customer_id"];
+
+    NSURL *urlAddress = [Config transactionUrl:customerId transaction:transaction_id asJSON:false];
+    NSLog(@"Hier bitte sehr: %@", urlAddress);
+    NSData *data = [NSData dataWithContentsOfURL:urlAddress];
+    UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
     
+    [qrImageView stopAnimating];
+    qrImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [qrImageView setImage:img];
+}
+
+- (void)generateQR {
     Properties *props = [[[Properties alloc] init] autorelease];
     NSString *customerId = [props get:@"customer_id"];
     NSURL *url = [Config transactionsUrl:customerId];

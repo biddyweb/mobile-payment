@@ -10,15 +10,19 @@
 #import "Customer.h"
 
 @interface Transaction : NSObject {
+    NSString *_id;
     NSString *amount;
     NSDate *paid_at;
+    NSDate *created_at;
     NSString *transaction_id;
     NSString *currency_key;
     Customer *customer;
 }
 
+@property(nonatomic, retain) NSString *_id;
 @property(nonatomic, retain) NSString *amount;
 @property(nonatomic, retain) NSDate *paid_at;
+@property(nonatomic, retain) NSDate *created_at;
 @property(nonatomic, retain) NSString *transaction_id;
 @property(nonatomic, retain) NSString *currency_key;
 @property(nonatomic, retain) Customer *customer;

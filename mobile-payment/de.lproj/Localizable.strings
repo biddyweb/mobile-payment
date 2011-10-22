@@ -4,5 +4,7 @@
 
 "MERCHANT.TITLE" = "Händler";
 
+"TRANSACTION.QR_CODE" = "QR- Code anzeigen";
+
 "ALERT.CUSTOMER.QRCODE" = "QR-Code";
 "ALERT.CUSTOMER.QRCODE_MESSAGE" = "QR-Code konnte nicht verarbeitet werden: %@";
