@@ -10,14 +10,14 @@
 
 @implementation AddressAnnotation
 
-@synthesize coordinate, row;
+@synthesize coordinate, customer;
 
 - (NSString *)subtitle {
-    return [NSString stringWithFormat:@"%@\n%@ %@", [row objectForKey:@"street"], [row objectForKey:@"zip"], [row objectForKey:@"location"]];
+    return [NSString stringWithFormat:@"%@\n%@ %@", customer.street, customer.zip, customer.location];
 }
 
 - (NSString *)title {
-    return [row objectForKey:@"customer"];
+    return customer.name;
 }
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D) c {

@@ -13,7 +13,7 @@
 
 @implementation TransactionDetailViewController
 
-@synthesize row;
+@synthesize transaction;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -141,16 +141,16 @@
         case 0:
             switch ([indexPath row]) {
                 case 0:
-                    return [row objectForKey:@"customer"];
+                    return transaction.customer.name;
                     
                 case 1:
-                    return [NSString stringWithFormat:@"%@ %@", [row objectForKey:@"amount"], [row objectForKey:@"currency_key"]];
+                    return [NSString stringWithFormat:@"%@ %@", transaction.amount, transaction.currency_key];
                 
                 case 2:
-                    return [row objectForKey:@"transaction_id"];
+                    return transaction.transaction_id;
                 
                 case 3:
-                    return [NSString stringWithFormat:@"%@\n%@ %@", [row objectForKey:@"street"], [row objectForKey:@"zip"], [row objectForKey:@"location"]];
+                    return [NSString stringWithFormat:@"%@\n%@ %@", transaction.customer.street, transaction.customer.zip, transaction.customer.location];
             }
     }
     
@@ -158,9 +158,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
-    NSString *dateString = [row objectForKey:@"paid_at"];
-
-    NSDate *date = [TransactionsViewController dateFromInternetDateTimeString:dateString];
+    NSDate *date = transaction.paid_at;
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat: @"dd.MM.yyyy HH:mm:ss"];
@@ -211,7 +209,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath row] == 0) {
-        CostomerWebsiteViewController *customerViewController = [[CostomerWebsiteViewController alloc] initWithNibName:@"CostomerWebsiteViewController" bundle:nil url:[row objectForKey:@"website_url"]];
+        CostomerWebsiteViewController *customerViewController = [[CostomerWebsiteViewController alloc] initWithNibName:@"CostomerWebsiteViewController" bundle:nil url:transaction.customer.website_url];
         
         // Pass the selected object to the new view controller.
         [self.navigationController pushViewController:customerViewController animated:YES];
@@ -219,7 +217,7 @@
     } else if([indexPath row] == 3) {
         MapsViewController *mapsViewController = [[MapsViewController alloc] initWithNibName:@"MapsViewController" bundle:nil ];
         
-        mapsViewController.row = row;
+        mapsViewController.customer = transaction.customer;
         [self.navigationController pushViewController:mapsViewController animated:YES];
         [mapsViewController release];
     }

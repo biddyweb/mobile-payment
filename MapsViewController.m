@@ -10,7 +10,7 @@
 
 @implementation MapsViewController
 
-@synthesize map, row, addAnnotation;
+@synthesize map, customer, addAnnotation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,7 +54,7 @@
     }
     
     addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:location];
-    addAnnotation.row = row;
+    addAnnotation.customer = customer;
     [map addAnnotation:addAnnotation];
     [map setRegion:region animated:TRUE];
     [map regionThatFits:region];
@@ -72,7 +72,7 @@
 }
 
 -(CLLocationCoordinate2D)addressLocation {
-    NSString *text = [NSString stringWithFormat:@"%@,%@,%@", [row objectForKey:@"street"], [row objectForKey:@"zip"], [row objectForKey:@"location"]];
+    NSString *text = [NSString stringWithFormat:@"%@,%@,%@", customer.street, customer.zip, customer.location];
     NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv", 
                            [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     

@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "Customer.h"
 
 @interface AddressAnnotation : NSObject<MKAnnotation> {
     CLLocationCoordinate2D coordinate;
     NSString *mTitle;
     NSString *mSubTitle;
-    NSDictionary *row;
+    Customer *customer;
 }
 
-@property(nonatomic, retain) NSDictionary *row;
+@property(nonatomic, retain) Customer *customer;
 
 @end

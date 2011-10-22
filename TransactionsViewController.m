@@ -11,6 +11,8 @@
 #import "Config.h"
 #import "SBJsonParser.h"
 #import "TransactionDetailViewController.h"
+#import "Customer.h"
+#import "Transaction.h"
 
 @implementation TransactionsViewController
 
@@ -27,6 +29,8 @@
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil transactionIds:(NSArray *)transactionIds hardwareId:(NSString *)hardwareId {
+    NSLog(@"aha...");
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         NSURL *url = [Config transactionsUrlWith:hardwareId andIds:transactionIds];
@@ -45,19 +49,11 @@
             table = [[NSMutableArray alloc] init];
             
             for (int i=0,n=[values count]; i<n; i++) {
-                [table addObject:
-                 [NSDictionary dictionaryWithObjectsAndKeys:
-                  [[values objectAtIndex:i] objectForKey:@"amount"], @"amount", 
-                  [[values objectAtIndex:i] objectForKey:@"paid_at"], @"paid_at",
-                  [[values objectAtIndex:i] objectForKey:@"transaction_id"], @"transaction_id",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"name"], @"customer",
-                  [[values objectAtIndex:i] objectForKey:@"currency_key"], @"currency_key",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"website_url"], @"website_url",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"street"], @"street",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"zip"], @"zip",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"location"], @"location",
-                  nil]
-                 ];
+                for (int i=0,n=[values count]; i<n; i++) {
+                    Transaction *transaction = [[Transaction alloc] initWithDictinoary:[values objectAtIndex:i]];
+                    
+                    [table addObject:transaction];
+                }
             }
         }
     }
@@ -130,8 +126,10 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = [[table objectAtIndex:[indexPath section]] objectForKey:@"customer"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [[table objectAtIndex:[indexPath section]] objectForKey:@"amount"], [[table objectAtIndex:[indexPath section]] objectForKey:@"currency_key"]];
+    
+    Transaction *transaction = [table objectAtIndex:[indexPath section]];
+    cell.textLabel.text = transaction.customer.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transaction.amount, transaction.currency_key];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -177,8 +175,11 @@
  */
 
 - (NSString *)tableView:(UITableView *)theTableView titleForHeaderInSection:(NSInteger)section {
-    NSString *dateString = [[table objectAtIndex:section] objectForKey:@"paid_at"];
-    NSDate *date = [TransactionsViewController dateFromInternetDateTimeString:dateString];
+    NSLog(@"%@", [table objectAtIndex:section]);
+    Transaction *transaction = [table objectAtIndex:section];
+    NSLog(@"%@", transaction.currency_key);
+    NSDate *date = transaction.paid_at;
+    NSLog(@"%@", date);
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat: @"dd.MM.yyyy HH:mm:ss"];
@@ -191,7 +192,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TransactionDetailViewController *detailViewController = [[TransactionDetailViewController alloc] initWithNibName:@"TransactionDetailViewController" bundle:nil];
     
-    detailViewController.row = [table objectAtIndex:[indexPath section]];
+    detailViewController.transaction = [table objectAtIndex:[indexPath section]];
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
@@ -247,19 +248,9 @@
             table = [[NSMutableArray alloc] init];
             
             for (int i=0,n=[values count]; i<n; i++) {
-                [table addObject:
-                 [NSDictionary dictionaryWithObjectsAndKeys:
-                  [[values objectAtIndex:i] objectForKey:@"amount"], @"amount", 
-                  [[values objectAtIndex:i] objectForKey:@"paid_at"], @"paid_at",
-                  [[values objectAtIndex:i] objectForKey:@"transaction_id"], @"transaction_id",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"name"], @"customer",
-                  [[values objectAtIndex:i] objectForKey:@"currency_key"], @"currency_key",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"website_url"], @"website_url",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"street"], @"street",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"zip"], @"zip",
-                  [[[values objectAtIndex:i] objectForKey:@"customer"] objectForKey:@"location"], @"location",
-                  nil]
-                 ];
+                Transaction *transaction = [[Transaction alloc] initWithDictinoary:[values objectAtIndex:i]];
+
+                [table addObject:transaction];
             }
             
             return table;
@@ -273,89 +264,6 @@
     }
     
     return nil;
-}
-
-+ (NSDate *)dateFromInternetDateTimeString:(NSString *)dateString {
-    
-    // Setup Date & Formatter
-    NSDate *date = nil;
-    static NSDateFormatter *formatter = nil;
-    if (!formatter) {
-        NSLocale *en_US_POSIX = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setLocale:en_US_POSIX];
-        [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-        [en_US_POSIX release];
-    }
-    
-    /*
-     *  RFC3339
-     */
-    
-    NSString *RFC3339String = [[NSString stringWithString:dateString] uppercaseString];
-    RFC3339String = [RFC3339String stringByReplacingOccurrencesOfString:@"Z" withString:@"-0000"];
-    
-    // Remove colon in timezone as iOS 4+ NSDateFormatter breaks
-    // See https://devforums.apple.com/thread/45837
-    if (RFC3339String.length > 20) {
-        RFC3339String = [RFC3339String stringByReplacingOccurrencesOfString:@":" 
-                                                                 withString:@"" 
-                                                                    options:0
-                                                                      range:NSMakeRange(20, RFC3339String.length-20)];
-    }
-    
-    if (!date) { // 1996-12-19T16:39:57-0800
-        [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"]; 
-        date = [formatter dateFromString:RFC3339String];
-    }
-    if (!date) { // 1937-01-01T12:00:27.87+0020
-        [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"]; 
-        date = [formatter dateFromString:RFC3339String];
-    }
-    if (!date) { // 1937-01-01T12:00:27
-        [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss"]; 
-        date = [formatter dateFromString:RFC3339String];
-    }
-    if (date) return date;
-    
-    /*
-     *  RFC822
-     */
-    
-    NSString *RFC822String = [[NSString stringWithString:dateString] uppercaseString];
-    if (!date) { // Sun, 19 May 02 15:21:36 GMT
-        [formatter setDateFormat:@"EEE, d MMM yy HH:mm:ss zzz"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) { // Sun, 19 May 2002 15:21:36 GMT
-        [formatter setDateFormat:@"EEE, d MMM yyyy HH:mm:ss zzz"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) {  // Sun, 19 May 2002 15:21 GMT
-        [formatter setDateFormat:@"EEE, d MMM yyyy HH:mm zzz"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) {  // 19 May 2002 15:21:36 GMT
-        [formatter setDateFormat:@"d MMM yyyy HH:mm:ss zzz"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) {  // 19 May 2002 15:21 GMT
-        [formatter setDateFormat:@"d MMM yyyy HH:mm zzz"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) {  // 19 May 2002 15:21:36
-        [formatter setDateFormat:@"d MMM yyyy HH:mm:ss"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (!date) {  // 19 May 2002 15:21
-        [formatter setDateFormat:@"d MMM yyyy HH:mm"]; 
-        date = [formatter dateFromString:RFC822String];
-    }
-    if (date) return date;
-    
-    // Failed
-    return nil;
-    
 }
 
 @end

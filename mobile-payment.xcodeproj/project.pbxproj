@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F204AB3A144B6E7800A7FAD6 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = F204AB39144B6E7800A7FAD6 /* Customer.m */; };
+		F204AB3D144B6EF100A7FAD6 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = F204AB3C144B6EF100A7FAD6 /* Transaction.m */; };
 		F20A83A3141CB08F00757691 /* appsymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A2141CB08F00757691 /* appsymbol.png */; };
 		F20A83A5141CB0D400757691 /* appsymbol_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F20A83A4141CB0D400757691 /* appsymbol_r.png */; };
 		F20A83A9141CBA8000757691 /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20A83A7141CBA8000757691 /* CatalogViewController.m */; };
@@ -160,6 +162,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F204AB38144B6E7800A7FAD6 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Customer.h; path = models/Customer.h; sourceTree = "<group>"; };
+		F204AB39144B6E7800A7FAD6 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Customer.m; path = models/Customer.m; sourceTree = "<group>"; };
+		F204AB3B144B6EF100A7FAD6 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		F204AB3C144B6EF100A7FAD6 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		F20A83A2141CB08F00757691 /* appsymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appsymbol.png; sourceTree = "<group>"; };
 		F20A83A4141CB0D400757691 /* appsymbol_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appsymbol_r.png; sourceTree = "<group>"; };
 		F20A83A6141CBA8000757691 /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
@@ -401,6 +407,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F204AB37144B6E1D00A7FAD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F204AB38144B6E7800A7FAD6 /* Customer.h */,
+				F204AB39144B6E7800A7FAD6 /* Customer.m */,
+				F204AB3B144B6EF100A7FAD6 /* Transaction.h */,
+				F204AB3C144B6EF100A7FAD6 /* Transaction.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		F20A83A0141B694D00757691 /* QR-Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +577,7 @@
 		F257B8761413B1F100AF8B3D /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				F204AB37144B6E1D00A7FAD6 /* Models */,
 				F257B8781413B21000AF8B3D /* ASIHTTP */,
 				F257B8791413B22F00AF8B3D /* JSON */,
 				F257B8771413B20600AF8B3D /* views */,
@@ -1082,6 +1100,8 @@
 				F2562FD4141D5BDE0089593D /* AddressAnnotation.m in Sources */,
 				F2E7244714240F1600409D10 /* SellerViewController.mm in Sources */,
 				F2E54C1A14312A8F00CA078C /* FindViewController.m in Sources */,
+				F204AB3A144B6E7800A7FAD6 /* Customer.m in Sources */,
+				F204AB3D144B6EF100A7FAD6 /* Transaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

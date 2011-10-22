@@ -14,14 +14,16 @@
 #import <CoreLocation/CoreLocation.h>
 #endif
 
-#define DEBUG 1
-//#define RELEASE 1
+//#define DEBUG 1
+#define RELEASE 1
 
 #ifdef DEBUG
 
 // Debug definitions
 #define DEBUG_MODE
 #define XLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+//#define MAIN_HOSTNAME @"http://192.168.9.109:3000/"
+#define MAIN_HOSTNAME @"http://rails1.server1686.railsvserver.de/"
 
 #else
 
@@ -32,5 +34,6 @@
 // Release definitions
 #define RELEASE_MODE
 #define XLog(...)
+#define MAIN_HOSTNAME @"http://rails1.server1686.railsvserver.de/"
 
 #endif

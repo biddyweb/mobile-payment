@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Transaction.h"
 
 @interface TransactionDetailViewController : UITableViewController {
-    NSDictionary *row;
+    Transaction *transaction;
 }
 
-@property(nonatomic, retain) NSDictionary *row;
+@property(nonatomic, retain) Transaction *transaction;
 
 -(NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath;
 

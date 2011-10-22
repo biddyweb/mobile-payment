@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "AddressAnnotation.h"
+#import "Customer.h"
 
 @interface MapsViewController : UIViewController <MKMapViewDelegate> {
     IBOutlet MKMapView *map;
-    NSDictionary *row;
+    Customer *customer;
     AddressAnnotation *addAnnotation;
 }
 
 @property(nonatomic, retain) IBOutlet MKMapView *map;
-@property(nonatomic, retain) NSDictionary *row;
+@property(nonatomic, retain) Customer *customer;
 @property(nonatomic, retain) AddressAnnotation *addAnnotation;
 
 -(CLLocationCoordinate2D)addressLocation;

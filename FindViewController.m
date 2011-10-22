@@ -61,7 +61,7 @@
     
     if (coords.longitude != longitude || coords.latitude != latitude) {
         //- (void)loadRequest:(NSURLRequest *)request
-        NSString *url = [NSString stringWithFormat:@"http://192.168.9.109:3000/customers?latitude=%f&longitude=%f", coords.latitude, coords.longitude];
+        NSString *url = [NSString stringWithFormat:@"%@customers?latitude=%f&longitude=%f", MAIN_HOSTNAME, coords.latitude, coords.longitude];
         [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
         NSLog(@"%@", url);
         [locationManager stopUpdatingLocation];

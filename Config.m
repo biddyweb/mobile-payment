@@ -25,7 +25,8 @@
 }
 
 +(NSString *)webUrlTEMP {
-    return @"http://192.168.9.109:3000/";
+    NSLog(@"%@", MAIN_HOSTNAME);
+    return MAIN_HOSTNAME;
     return @"http://payment.dev/";
 }
 
